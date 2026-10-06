@@ -1,0 +1,14 @@
+# Reference only; official/web installers are separate.
+warp-terminal-bin # Terminal with assistance and organization features.
+visual-studio-code-bin # Extensible editor; use your cloud settings sync.
+cursor-bin # Code editor with AI assistance.
+sublime-text-4 # Lightweight code and text editor.
+bruno-bin # API client with file-based collections.
+postman-bin # Tests and organizes API requests and collections.
+tabularis-bin # Graphical database exploration and management tool.
+mongodb-compass # Graphical client for MongoDB databases.
+google-chrome # Browser with web development tools.
+helium-browser-bin # Chromium-based browser.
+slack-desktop # Team messaging and collaboration.
+spotify # Music and podcast player.
+android-studio # Android IDE; manage additional SDKs inside the app.

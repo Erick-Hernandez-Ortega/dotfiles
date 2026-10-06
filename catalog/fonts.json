@@ -1,0 +1,44 @@
+[
+  {
+    "id": "jetbrains",
+    "label": "JetBrains Mono",
+    "description_es": "Fuente monoespaciada para programar.",
+    "description_en": "Monospaced programming font.",
+    "default": false,
+    "kind": "font",
+    "command": "",
+    "mac": "cask:font-jetbrains-mono",
+    "linux": "pacman:ttf-jetbrains-mono",
+    "app": "",
+    "font_family": "JetBrains Mono",
+    "url": ""
+  },
+  {
+    "id": "jetbrains-nerd",
+    "label": "JetBrains Mono Nerd Font",
+    "description_es": "JetBrains Mono con símbolos para eza y terminales.",
+    "description_en": "JetBrains Mono with symbols for eza and terminal prompts.",
+    "default": false,
+    "kind": "font",
+    "command": "",
+    "mac": "cask:font-jetbrains-mono-nerd-font",
+    "linux": "pacman:ttf-jetbrains-mono-nerd",
+    "app": "",
+    "font_family": "JetBrainsMono Nerd Font",
+    "url": ""
+  },
+  {
+    "id": "hack-nerd",
+    "label": "Hack Nerd Font",
+    "description_es": "Fuente Hack con símbolos adicionales.",
+    "description_en": "Hack font with extra terminal symbols.",
+    "default": false,
+    "kind": "font",
+    "command": "",
+    "mac": "cask:font-hack-nerd-font",
+    "linux": "pacman:ttf-hack-nerd",
+    "app": "",
+    "font_family": "Hack Nerd Font",
+    "url": ""
+  }
+]

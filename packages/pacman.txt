@@ -1,0 +1,20 @@
+# Reference only; official/web installers are separate.
+zsh-autosuggestions # Suggests commands from your shell history.
+zsh-syntax-highlighting # Highlights shell commands and typing errors.
+fastfetch # Displays system information when a terminal opens.
+eza # Lists files with icons, Git status and tree views.
+bat # Displays files with syntax highlighting and paging.
+btop # Interactive CPU, memory and process monitor.
+lazydocker # Terminal interface for Docker containers; requires Docker.
+github-cli # Signs in to GitHub and manages repositories and pull requests.
+ripgrep # Searches text quickly inside files and projects.
+fd # Finds files and directories with simple syntax.
+uv # Manages Python tools, environments and versions.
+ghostty # Fast GPU-accelerated terminal.
+zed # Fast collaborative code editor.
+docker docker-compose # Docker Desktop on Mac; Engine and Compose on Linux.
+discord # Community chat and calls.
+steam # Game library and installer; Linux requires multilib.
+ttf-jetbrains-mono # Monospaced programming font.
+ttf-jetbrains-mono-nerd # JetBrains Mono with symbols for eza and terminal prompts.
+ttf-hack-nerd # Hack font with extra terminal symbols.

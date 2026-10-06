@@ -1,0 +1,14 @@
+# Local customizations and authentication never belong in the public repository.
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+local.zsh
+*.pem
+*.key
+*.p12
+*.pfx
+*.vsix
+node_modules/
+.state/

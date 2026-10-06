@@ -1,0 +1,12 @@
+# Reference only: the wizard installs selected items individually.
+brew "zsh-autosuggestions" # Suggests commands from your shell history.
+brew "zsh-syntax-highlighting" # Highlights shell commands and typing errors.
+brew "fastfetch" # Displays system information when a terminal opens.
+brew "eza" # Lists files with icons, Git status and tree views.
+brew "bat" # Displays files with syntax highlighting and paging.
+brew "btop" # Interactive CPU, memory and process monitor.
+brew "lazydocker" # Terminal interface for Docker containers; requires Docker.
+brew "gh" # Signs in to GitHub and manages repositories and pull requests.
+brew "ripgrep" # Searches text quickly inside files and projects.
+brew "fd" # Finds files and directories with simple syntax.
+brew "uv" # Manages Python tools, environments and versions.

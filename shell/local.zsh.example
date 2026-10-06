@@ -1,0 +1,2 @@
+# Copy to ~/.zshrc.local for private environment variables and machine-specific aliases.
+# This file is never installed automatically.

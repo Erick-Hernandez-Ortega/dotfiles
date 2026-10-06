@@ -1,0 +1,31 @@
+# Optional apps/fonts; not installed wholesale.
+cask "ghostty" # Fast GPU-accelerated terminal.
+cask "warp" # Terminal with assistance and organization features.
+cask "visual-studio-code" # Extensible editor; use your cloud settings sync.
+cask "cursor" # Code editor with AI assistance.
+cask "zed" # Fast collaborative code editor.
+cask "sublime-text" # Lightweight code and text editor.
+cask "chatgpt" # ChatGPT desktop application.
+cask "claude" # Claude desktop app, separate from Claude Code.
+cask "bruno" # API client with file-based collections.
+cask "postman" # Tests and organizes API requests and collections.
+cask "tabularis" # Graphical database exploration and management tool.
+cask "mongodb-compass" # Graphical client for MongoDB databases.
+cask "dbeaver-community" # Multi-database SQL client; enabled on Mac only.
+cask "docker-desktop" # Docker Desktop on Mac; Engine and Compose on Linux.
+cask "google-chrome" # Browser with web development tools.
+cask "helium-browser" # Chromium-based browser.
+cask "slack" # Team messaging and collaboration.
+cask "discord" # Community chat and calls.
+cask "whatsapp" # Official messaging client for Mac.
+cask "notion" # Notes, documentation and personal organization.
+cask "linear" # Task and issue management.
+cask "spotify" # Music and podcast player.
+cask "steam" # Game library and installer; Linux requires multilib.
+cask "android-studio" # Android IDE; manage additional SDKs inside the app.
+cask "rectangle" # Arranges Mac windows using keyboard shortcuts.
+cask "appcleaner" # Helps uninstall Mac apps and their associated files.
+cask "clipy" # Clipboard history on Mac.
+cask "font-jetbrains-mono" # Monospaced programming font.
+cask "font-jetbrains-mono-nerd-font" # JetBrains Mono with symbols for eza and terminal prompts.
+cask "font-hack-nerd-font" # Hack font with extra terminal symbols.

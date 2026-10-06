@@ -1,0 +1,4 @@
+# Your current Ghostty appearance. No font override is applied automatically.
+background = #23262e
+background-opacity = 0.80
+background-blur = 80

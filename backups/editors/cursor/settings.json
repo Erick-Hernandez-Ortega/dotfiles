@@ -1,0 +1,38 @@
+{
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontSize": 13,
+  "terminal.integrated.fontSize": 13,
+  "workbench.colorTheme": "One Dark Pro Italic Vivid",
+  "workbench.iconTheme": "material-icon-theme",
+  "explorer.compactFolders": false,
+  "workbench.productIconTheme": "material-product-icons",
+  "terminal.integrated.fontFamily": "Firacode Nerd Font, JetBrains Mono",
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
