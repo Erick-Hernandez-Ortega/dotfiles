@@ -1,8 +1,23 @@
-# Dotfiles de Ramón · macOS + EndeavourOS + Zorin 18
+# Dotfiles de Ramón · Windows + macOS + EndeavourOS + Zorin 18
 
 [English](README.md) · Español
 
-Un asistente interactivo para preparar mi terminal y seleccionar mis aplicaciones en una nueva computadora Unix. No instala Hyprland, Office ni extensiones de editores.
+Un asistente interactivo para preparar mi terminal y seleccionar mis aplicaciones en una nueva computadora Windows o Unix. No instala Hyprland, Office ni extensiones de editores.
+
+## Windows: tu setup y el SSD que elijas
+
+```powershell
+powershell -NoProfile -File .\bootstrap.ps1 -List       # Inventario sin cambios.
+powershell -NoProfile -File .\bootstrap.ps1 -DryRun     # Simulación sin instalar.
+powershell -NoProfile -File .\bootstrap.ps1             # Elegir disco, apps y configuración.
+powershell -NoProfile -File .\bootstrap.ps1 -TargetDrive E:
+```
+
+Windows 10/11 x64: Chocolatey es el gestor principal, con WinGet e instaladores oficiales para rutas específicas. El asistente propone E: si existe, permite elegir cualquier unidad local montada y editar las carpetas Software, Development y Data. Usa el destino elegido donde exista soporte comprobado; el resumen muestra las excepciones. Conserva las instalaciones y datos existentes en sus ubicaciones actuales.
+
+Reproduce PowerShell con Oh My Posh/robbyrussell y Terminal-Icons. La apariencia de Windows Terminal es opcional. Respeta Documentos en OneDrive y NVM for Windows; no instala Node automáticamente. Git Bash delega en PowerShell; WSL configura Linux.
+
+Consulta [Windows: uso, destinos y recuperación](docs/windows.md) y la [matriz Windows](docs/windows-compatibility.md). Diagnóstico: `powershell -NoProfile -File .\scripts\windows\doctor.ps1`.
 
 ## Inicio rápido
 
@@ -29,7 +44,7 @@ No hay archivos de selección persistente. `--list` conserva el inventario detal
 - Usa la versión disponible en el gestor seleccionado; los instaladores oficiales resuelven su versión estable. No hay versiones fijadas, actualizaciones automáticas ni selección persistente. Una app instalada se conserva; actualízala con su gestor habitual.
 - NVM se instala sin Node. Más adelante puedes ejecutar `nvm install --lts`: instala el Node LTS disponible y lo administra NVM.
 - Bun/pnpm/Deno y agentes CLI tienen instalación independiente; no se añade Node por Brew/npm.
-- OpenCode usa exclusivamente su instalador oficial web.
+- En Unix, OpenCode usa exclusivamente su instalador oficial web. Windows usa su distribución portable oficial para admitir el disco elegido.
 - Git existente se reutiliza. Nombre y correo quedan fijos; los tokens nunca se copian al repo.
 - No se aplican respaldos de editores ni se instalan extensiones. Usa tu sincronización de nube.
 - La detección consulta comandos, archivos, aplicaciones, fuentes y paquetes. `doctor` también consulta runtimes, enlaces rotos y acceso a Docker/Compose. Es una comprobación de presencia, no de licencia, sesión o funcionamiento completo.

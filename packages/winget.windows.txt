@@ -1,0 +1,3 @@
+# Generated reference only; bootstrap.ps1 installs selected items individually.
+CoreyButler.NVMforWindows # NVM
+9NKSQGP7F2NH # WhatsApp

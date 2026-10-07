@@ -28,6 +28,13 @@ java17|Java 17 JDK|Herramientas Java para desarrollo Android.|Java tools for And
 watchman|Watchman|Observa cambios de archivos para desarrollo móvil.|Watches file changes for mobile development.|0|tool|watchman||aur:watchman-bin|||manual:https://facebook.github.io/watchman/docs/install||https://facebook.github.io/watchman/docs/install
 ngrok|ngrok|Expone servicios locales mediante túneles.|Exposes local services through tunnels.|0|tool|ngrok||aur:ngrok|||manual:https://ngrok.com/download/linux||https://ngrok.com/download/linux
 lazyworktree|lazyworktree|Administra worktrees de Git desde la terminal.|Manages Git worktrees from the terminal.|0|tool|lazyworktree||aur:lazyworktree-bin|||manual:https://github.com/chmouel/lazyworktree||https://github.com/chmouel/lazyworktree
+git|Git|Control de versiones; conserva tu instalación existente.|Version control; keep the existing installation.|0|tool||||||||https://docs.chocolatey.org/en-us/choco/commands/install/
+oh-my-posh|Oh My Posh|Prompt robbyrussell para PowerShell.|Robbyrussell prompt for PowerShell.|0|tool||||||||https://community.chocolatey.org/packages/oh-my-posh
+terminal-icons|Terminal-Icons|Iconos en los listados de PowerShell.|Icons for PowerShell directory listings.|0|tool||||||||https://www.powershellgallery.com/packages/Terminal-Icons
+psreadline|PSReadLine|Edición e historial de comandos en PowerShell.|PowerShell command editing and history.|0|tool||||||||https://www.powershellgallery.com/packages/PSReadLine
+powershell7|PowerShell 7|Shell moderna opcional; no cambia tu terminal predeterminada.|Optional modern shell; does not change your default terminal.|0|tool||||||||https://community.chocolatey.org/packages/powershell-core
+python3|Python 3|Python moderno opcional; conserva intérpretes existentes.|Optional modern Python; preserves existing interpreters.|0|tool||||||||https://community.chocolatey.org/packages/python3
+buildtools|Visual Studio Build Tools|Herramientas de compilación actuales opcionales.|Optional current compilation tools.|0|tool||||||||https://visualstudio.microsoft.com/downloads/
 ghostty|Ghostty|Terminal rápida con aceleración gráfica.|Fast GPU-accelerated terminal.|0|app|ghostty|cask:ghostty|pacman:ghostty|Ghostty.app||manual:https://ghostty.org/docs/install/binary||
 warp|Warp|Terminal con funciones de asistencia y organización.|Terminal with assistance and organization features.|0|app|warp-terminal|cask:warp|aur:warp-terminal-bin|Warp.app||repo:warp||
 vscode|Visual Studio Code|Editor extensible; utiliza tu sincronización de nube.|Extensible editor; use your cloud settings sync.|0|app|code|cask:visual-studio-code|aur:visual-studio-code-bin|Visual Studio Code.app||repo:vscode|com.visualstudio.code|
@@ -60,6 +67,18 @@ tableplus|TablePlus|Cliente gráfico de bases de datos.|Graphical database clien
 firefox|Firefox|Navegador para uso diario y pruebas web.|Browser for everyday use and web testing.|0|app|firefox||pacman:firefox|||flatpak:org.mozilla.firefox|org.mozilla.firefox|https://www.mozilla.org/firefox/
 vlc|VLC|Reproductor multimedia.|Media player.|0|app|vlc||pacman:vlc|||apt:vlc|org.videolan.VLC|https://www.videolan.org/vlc/
 zapzap|ZapZap|Cliente comunitario de WhatsApp para Linux.|Community WhatsApp client for Linux.|0|app|zapzap||flatpak:com.rtosta.zapzap|||flatpak:com.rtosta.zapzap|com.rtosta.zapzap|https://github.com/rtosta/zapzap
+windows-terminal|Windows Terminal|Terminal con pestañas, perfiles y atajos de teclado.|Terminal with tabs, profiles and keyboard shortcuts.|0|app||||||||https://community.chocolatey.org/packages/microsoft-windows-terminal
+heidisql|HeidiSQL|Cliente para explorar bases de datos SQL.|Client for browsing SQL databases.|0|app||||||||https://community.chocolatey.org/packages/heidisql
+mariadb|MariaDB|Servidor SQL opcional; conserva los datos existentes.|Optional SQL server; preserves existing data.|0|app||||||||https://community.chocolatey.org/packages/mariadb
+pycharm|PyCharm|IDE de Python, edición Community.|Python IDE, Community edition.|0|app||||||||https://community.chocolatey.org/packages/pycharm-community
+webstorm|WebStorm|IDE para JavaScript y TypeScript; requiere su licencia correspondiente.|JavaScript and TypeScript IDE; requires the appropriate license.|0|app||||||||https://community.chocolatey.org/packages/webstorm
+winrar|WinRAR|Compresión y extracción de archivos; requiere su licencia correspondiente.|Archive compression and extraction; requires the appropriate license.|0|app||||||||https://community.chocolatey.org/packages/winrar
+yaak|Yaak|Cliente de API; instalación desde su sitio oficial.|API client; installation from its official site.|0|app||||||||https://yaak.app/
+windsurf|Windsurf|Editor con asistencia de IA; instalación oficial.|Editor with AI assistance; official installation.|0|app||||||||https://windsurf.com/download
+trae|Trae|Editor de código con asistencia de IA.|Code editor with AI assistance.|0|app||||||||https://www.trae.ai/download
+comet|Comet|Navegador de Perplexity; instalación oficial.|Perplexity browser; official installation.|0|app||||||||https://www.perplexity.ai/comet
+ollama|Ollama|Ejecuta modelos locales; permite elegir binarios y nuevos modelos.|Run local models; choose binaries and new model storage.|0|app||||||||https://docs.ollama.com/windows
 jetbrains|JetBrains Mono|Fuente monoespaciada para programar.|Monospaced programming font.|0|font||cask:font-jetbrains-mono|pacman:ttf-jetbrains-mono||JetBrains Mono|apt:fonts-jetbrains-mono||
 jetbrains-nerd|JetBrains Mono Nerd Font|JetBrains Mono con símbolos para eza y terminales.|JetBrains Mono with symbols for eza and terminal prompts.|0|font||cask:font-jetbrains-mono-nerd-font|pacman:ttf-jetbrains-mono-nerd||JetBrainsMono Nerd Font|native:jetbrains-nerd||
-hack-nerd|Hack Nerd Font|Fuente Hack con símbolos adicionales.|Hack font with extra terminal symbols.|0|font||cask:font-hack-nerd-font|pacman:ttf-hack-nerd||Hack Nerd Font|native:hack-nerd||'
+hack-nerd|Hack Nerd Font|Fuente Hack con símbolos adicionales.|Hack font with extra terminal symbols.|0|font||cask:font-hack-nerd-font|pacman:ttf-hack-nerd||Hack Nerd Font|native:hack-nerd||
+firacode-nerd|FiraCode Nerd Font|Fuente e iconos de tu Windows Terminal actual.|Font and icons from your current Windows Terminal.|0|font||||||||https://community.chocolatey.org/packages/nerd-fonts-FiraCode'

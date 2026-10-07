@@ -13,7 +13,8 @@
     "font_family": "",
     "url": "https://ohmyz.sh/",
     "ubuntu": "native:omz",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "autosuggestions",
@@ -29,7 +30,8 @@
     "font_family": "",
     "url": "",
     "ubuntu": "apt:zsh-autosuggestions",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "syntax-highlighting",
@@ -45,7 +47,8 @@
     "font_family": "",
     "url": "",
     "ubuntu": "apt:zsh-syntax-highlighting",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "fastfetch",
@@ -61,7 +64,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "deb:fastfetch",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "zip",
+      "package": "fastfetch-cli/fastfetch",
+      "group": 0,
+      "default": false,
+      "location": "custom",
+      "folder": "Fastfetch",
+      "commands": [
+        "fastfetch"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://github.com/fastfetch-cli/fastfetch/releases",
+      "admin": false,
+      "asset": "^fastfetch-windows-amd64\\.zip$",
+      "exe": "fastfetch.exe"
+    }
   },
   {
     "id": "eza",
@@ -77,7 +99,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "apt:eza",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "zip",
+      "package": "eza-community/eza",
+      "group": 0,
+      "default": false,
+      "location": "custom",
+      "folder": "eza",
+      "commands": [
+        "eza"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://github.com/eza-community/eza/releases",
+      "admin": false,
+      "asset": "^eza\\.exe_x86_64-pc-windows-gnu\\.zip$",
+      "exe": "eza.exe"
+    }
   },
   {
     "id": "bat",
@@ -93,7 +134,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "apt:bat",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "zip",
+      "package": "sharkdp/bat",
+      "group": 0,
+      "default": false,
+      "location": "custom",
+      "folder": "bat",
+      "commands": [
+        "bat"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://github.com/sharkdp/bat/releases",
+      "admin": false,
+      "asset": "^bat-.*-x86_64-pc-windows-msvc\\.zip$",
+      "exe": "bat.exe"
+    }
   },
   {
     "id": "btop",
@@ -109,7 +169,8 @@
     "font_family": "",
     "url": "",
     "ubuntu": "apt:btop",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "lazydocker",
@@ -125,7 +186,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "manual:https://github.com/jesseduffield/lazydocker#installation",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "zip",
+      "package": "jesseduffield/lazydocker",
+      "group": 0,
+      "default": false,
+      "location": "custom",
+      "folder": "lazydocker",
+      "commands": [
+        "lazydocker"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://github.com/jesseduffield/lazydocker/releases",
+      "admin": false,
+      "asset": "^lazydocker_.*_Windows_x86_64\\.zip$",
+      "exe": "lazydocker.exe"
+    }
   },
   {
     "id": "gh",
@@ -141,7 +221,24 @@
     "font_family": "",
     "url": "",
     "ubuntu": "apt:gh",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "gh",
+      "group": 0,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "gh"
+      ],
+      "paths": [],
+      "detect": "^GitHub CLI",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/gh",
+      "admin": true
+    }
   },
   {
     "id": "ripgrep",
@@ -157,7 +254,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "apt:ripgrep",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "zip",
+      "package": "BurntSushi/ripgrep",
+      "group": 0,
+      "default": false,
+      "location": "custom",
+      "folder": "ripgrep",
+      "commands": [
+        "rg"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://github.com/BurntSushi/ripgrep/releases",
+      "admin": false,
+      "asset": "^ripgrep-.*-x86_64-pc-windows-msvc\\.zip$",
+      "exe": "rg.exe"
+    }
   },
   {
     "id": "fd",
@@ -173,7 +289,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "apt:fd-find",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "zip",
+      "package": "sharkdp/fd",
+      "group": 0,
+      "default": false,
+      "location": "custom",
+      "folder": "fd",
+      "commands": [
+        "fd"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://github.com/sharkdp/fd/releases",
+      "admin": false,
+      "asset": "^fd-.*-x86_64-pc-windows-msvc\\.zip$",
+      "exe": "fd.exe"
+    }
   },
   {
     "id": "uv",
@@ -189,7 +324,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "native:uv",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "zip",
+      "package": "astral-sh/uv",
+      "group": 0,
+      "default": false,
+      "location": "custom",
+      "folder": "uv",
+      "commands": [
+        "uv"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://github.com/astral-sh/uv/releases",
+      "admin": false,
+      "asset": "^uv-x86_64-pc-windows-msvc\\.zip$",
+      "exe": "uv.exe"
+    }
   },
   {
     "id": "nvm",
@@ -205,7 +359,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "native:nvm",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "winget",
+      "package": "CoreyButler.NVMforWindows",
+      "group": 1,
+      "default": true,
+      "location": "custom",
+      "folder": "nvm",
+      "commands": [
+        "nvm"
+      ],
+      "paths": [
+        "{nvmhome}\\nvm.exe"
+      ],
+      "detect": "^NVM for Windows",
+      "store": "",
+      "font": "",
+      "source": "https://github.com/coreybutler/nvm-windows",
+      "admin": true
+    }
   },
   {
     "id": "bun",
@@ -221,7 +394,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "native:bun",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "native",
+      "package": "bun",
+      "group": 1,
+      "default": true,
+      "location": "custom",
+      "folder": "Bun",
+      "commands": [
+        "bun"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://bun.sh/docs/installation",
+      "admin": false,
+      "url": "https://bun.sh/install.ps1",
+      "variable": "BUN_INSTALL"
+    }
   },
   {
     "id": "pnpm",
@@ -237,7 +429,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "native:pnpm",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "native",
+      "package": "pnpm",
+      "group": 1,
+      "default": false,
+      "location": "custom",
+      "folder": "pnpm",
+      "commands": [
+        "pnpm"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://pnpm.io/installation",
+      "admin": false,
+      "url": "https://get.pnpm.io/install.ps1",
+      "variable": "PNPM_HOME"
+    }
   },
   {
     "id": "deno",
@@ -253,7 +464,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "native:deno",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "native",
+      "package": "deno",
+      "group": 1,
+      "default": false,
+      "location": "custom",
+      "folder": "Deno",
+      "commands": [
+        "deno"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://docs.deno.com/runtime/getting_started/installation/",
+      "admin": false,
+      "url": "https://deno.land/install.ps1",
+      "variable": "DENO_INSTALL"
+    }
   },
   {
     "id": "opencode",
@@ -269,7 +499,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "native:opencode",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "zip",
+      "package": "anomalyco/opencode",
+      "group": 2,
+      "default": true,
+      "location": "custom",
+      "folder": "OpenCode",
+      "commands": [
+        "opencode"
+      ],
+      "paths": [],
+      "detect": "^OpenCode$",
+      "store": "",
+      "font": "",
+      "source": "https://opencode.ai/docs/",
+      "admin": false,
+      "asset": "^opencode-windows-x64\\.zip$",
+      "exe": "opencode.exe"
+    }
   },
   {
     "id": "cursor-cli",
@@ -285,7 +534,28 @@
     "font_family": "",
     "url": "",
     "ubuntu": "native:cursor-cli",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "native",
+      "package": "cursor-cli",
+      "group": 2,
+      "default": true,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "agent",
+        "cursor-agent"
+      ],
+      "paths": [
+        "{local}\\cursor-agent\\agent.ps1"
+      ],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://cursor.com/docs/cli/installation",
+      "admin": false,
+      "url": "https://cursor.com/install?win32=true"
+    }
   },
   {
     "id": "codex",
@@ -301,7 +571,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "native:codex",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://developers.openai.com/codex/windows",
+      "group": 2,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "codex"
+      ],
+      "paths": [
+        "{local}\\Programs\\OpenAI\\Codex\\bin\\codex.exe"
+      ],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://developers.openai.com/codex/windows",
+      "admin": false
+    }
   },
   {
     "id": "claude-code",
@@ -317,7 +606,25 @@
     "font_family": "",
     "url": "",
     "ubuntu": "native:claude-code",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "native",
+      "package": "claude-code",
+      "group": 2,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "claude"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://code.claude.com/docs/en/setup",
+      "admin": false,
+      "url": "https://claude.ai/install.ps1"
+    }
   },
   {
     "id": "jq",
@@ -333,7 +640,24 @@
     "app": "",
     "font_family": "",
     "url": "https://jqlang.org/",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "jq",
+      "group": 0,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "jq"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/jq",
+      "admin": true
+    }
   },
   {
     "id": "fzf",
@@ -349,7 +673,26 @@
     "app": "",
     "font_family": "",
     "url": "https://github.com/junegunn/fzf",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "zip",
+      "package": "junegunn/fzf",
+      "group": 0,
+      "default": false,
+      "location": "custom",
+      "folder": "fzf",
+      "commands": [
+        "fzf"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://github.com/junegunn/fzf/releases",
+      "admin": false,
+      "asset": "^fzf-.*-windows_amd64\\.zip$",
+      "exe": "fzf.exe"
+    }
   },
   {
     "id": "zoxide",
@@ -365,7 +708,24 @@
     "app": "",
     "font_family": "",
     "url": "https://github.com/ajeetdsouza/zoxide",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "zoxide",
+      "group": 0,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "zoxide"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/zoxide",
+      "admin": true
+    }
   },
   {
     "id": "rsync",
@@ -381,7 +741,8 @@
     "app": "",
     "font_family": "",
     "url": "https://rsync.samba.org/",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "rbenv",
@@ -397,7 +758,8 @@
     "app": "",
     "font_family": "",
     "url": "https://github.com/rbenv/rbenv",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "java17",
@@ -413,7 +775,24 @@
     "app": "",
     "font_family": "",
     "url": "https://openjdk.org/projects/jdk/17/",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "microsoft-openjdk17",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "javac"
+      ],
+      "paths": [],
+      "detect": "^Microsoft Build of OpenJDK\\s+17",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/microsoft-openjdk17",
+      "admin": true
+    }
   },
   {
     "id": "watchman",
@@ -429,7 +808,8 @@
     "app": "",
     "font_family": "",
     "url": "https://facebook.github.io/watchman/docs/install",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "ngrok",
@@ -445,7 +825,24 @@
     "app": "",
     "font_family": "",
     "url": "https://ngrok.com/download/linux",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "ngrok",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "ngrok"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/ngrok",
+      "admin": true
+    }
   },
   {
     "id": "lazyworktree",
@@ -461,6 +858,238 @@
     "app": "",
     "font_family": "",
     "url": "https://github.com/chmouel/lazyworktree",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
+  },
+  {
+    "id": "git",
+    "label": "Git",
+    "description_es": "Control de versiones; conserva tu instalación existente.",
+    "description_en": "Version control; keep the existing installation.",
+    "default": false,
+    "kind": "tool",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://docs.chocolatey.org/en-us/choco/commands/install/",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "git.install",
+      "group": 0,
+      "default": true,
+      "location": "custom",
+      "folder": "Git",
+      "commands": [
+        "git"
+      ],
+      "paths": [
+        "{software}\\Git\\cmd\\git.exe"
+      ],
+      "detect": "^Git$",
+      "store": "",
+      "font": "",
+      "source": "https://docs.chocolatey.org/en-us/choco/commands/install/",
+      "admin": true,
+      "installArgs": "/DIR=\"{destination}\""
+    }
+  },
+  {
+    "id": "oh-my-posh",
+    "label": "Oh My Posh",
+    "description_es": "Prompt robbyrussell para PowerShell.",
+    "description_en": "Robbyrussell prompt for PowerShell.",
+    "default": false,
+    "kind": "tool",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://community.chocolatey.org/packages/oh-my-posh",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "oh-my-posh",
+      "group": 0,
+      "default": true,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "oh-my-posh"
+      ],
+      "paths": [
+        "{local}\\Programs\\oh-my-posh\\bin\\oh-my-posh.exe"
+      ],
+      "detect": "^Oh My Posh",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/oh-my-posh",
+      "admin": true
+    }
+  },
+  {
+    "id": "terminal-icons",
+    "label": "Terminal-Icons",
+    "description_es": "Iconos en los listados de PowerShell.",
+    "description_en": "Icons for PowerShell directory listings.",
+    "default": false,
+    "kind": "tool",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://www.powershellgallery.com/packages/Terminal-Icons",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "module",
+      "package": "Terminal-Icons",
+      "group": 0,
+      "default": true,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://www.powershellgallery.com/packages/Terminal-Icons",
+      "admin": false
+    }
+  },
+  {
+    "id": "psreadline",
+    "label": "PSReadLine",
+    "description_es": "Edición e historial de comandos en PowerShell.",
+    "description_en": "PowerShell command editing and history.",
+    "default": false,
+    "kind": "tool",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://www.powershellgallery.com/packages/PSReadLine",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "module",
+      "package": "PSReadLine",
+      "group": 0,
+      "default": true,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "",
+      "source": "https://www.powershellgallery.com/packages/PSReadLine",
+      "admin": false
+    }
+  },
+  {
+    "id": "powershell7",
+    "label": "PowerShell 7",
+    "description_es": "Shell moderna opcional; no cambia tu terminal predeterminada.",
+    "description_en": "Optional modern shell; does not change your default terminal.",
+    "default": false,
+    "kind": "tool",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://community.chocolatey.org/packages/powershell-core",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "powershell-core",
+      "group": 0,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "pwsh"
+      ],
+      "paths": [],
+      "detect": "^PowerShell 7",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/powershell-core",
+      "admin": true
+    }
+  },
+  {
+    "id": "python3",
+    "label": "Python 3",
+    "description_es": "Python moderno opcional; conserva intérpretes existentes.",
+    "description_en": "Optional modern Python; preserves existing interpreters.",
+    "default": false,
+    "kind": "tool",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://community.chocolatey.org/packages/python3",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "python3",
+      "group": 1,
+      "default": false,
+      "location": "custom",
+      "folder": "Python",
+      "commands": [
+        "python3"
+      ],
+      "paths": [],
+      "detect": "^Python 3\\.",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/python3",
+      "admin": true,
+      "params": "/InstallDir:\"{destination}\""
+    }
+  },
+  {
+    "id": "buildtools",
+    "label": "Visual Studio Build Tools",
+    "description_es": "Herramientas de compilación actuales opcionales.",
+    "description_en": "Optional current compilation tools.",
+    "default": false,
+    "kind": "tool",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://visualstudio.microsoft.com/downloads/",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Visual Studio Build Tools",
+      "store": "",
+      "font": "",
+      "source": "https://visualstudio.microsoft.com/downloads/",
+      "admin": false
+    }
   }
 ]

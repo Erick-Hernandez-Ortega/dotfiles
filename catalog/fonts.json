@@ -13,7 +13,22 @@
     "font_family": "JetBrains Mono",
     "url": "",
     "ubuntu": "apt:fonts-jetbrains-mono",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "jetbrainsmono",
+      "group": 6,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "JetBrains Mono|JetBrainsMono-Regular",
+      "source": "https://community.chocolatey.org/packages/jetbrainsmono",
+      "admin": true
+    }
   },
   {
     "id": "jetbrains-nerd",
@@ -29,7 +44,22 @@
     "font_family": "JetBrainsMono Nerd Font",
     "url": "",
     "ubuntu": "native:jetbrains-nerd",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "nerd-fonts-JetBrainsMono",
+      "group": 6,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "JetBrainsMono.*Nerd",
+      "source": "https://community.chocolatey.org/packages/nerd-fonts-JetBrainsMono",
+      "admin": true
+    }
   },
   {
     "id": "hack-nerd",
@@ -45,6 +75,52 @@
     "font_family": "Hack Nerd Font",
     "url": "",
     "ubuntu": "native:hack-nerd",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "nerd-fonts-Hack",
+      "group": 6,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "Hack.*Nerd",
+      "source": "https://community.chocolatey.org/packages/nerd-fonts-Hack",
+      "admin": true
+    }
+  },
+  {
+    "id": "firacode-nerd",
+    "label": "FiraCode Nerd Font",
+    "description_es": "Fuente e iconos de tu Windows Terminal actual.",
+    "description_en": "Font and icons from your current Windows Terminal.",
+    "default": false,
+    "kind": "font",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://community.chocolatey.org/packages/nerd-fonts-FiraCode",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "nerd-fonts-FiraCode",
+      "group": 6,
+      "default": true,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "",
+      "store": "",
+      "font": "FiraCode.*Nerd",
+      "source": "https://community.chocolatey.org/packages/nerd-fonts-FiraCode",
+      "admin": true
+    }
   }
 ]

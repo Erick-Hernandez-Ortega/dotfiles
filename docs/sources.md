@@ -1,5 +1,19 @@
 # Installation sources / Fuentes
 
+## Windows sources
+
+Every Windows catalog option includes its package/upstream source; the [generated matrix](windows-compatibility.md) lists them. Chocolatey package identifiers were checked against their community pages where available; installation success is verified separately at runtime. Official portable release routes are used when a package would keep its binaries in Chocolatey's directory instead of the chosen drive.
+
+- [Chocolatey installation and arguments](https://docs.chocolatey.org/en-us/choco/commands/install/): package parameters and installer arguments are distinct; no universal custom-directory switch is assumed.
+- [WinGet installation options](https://learn.microsoft.com/en-us/windows/package-manager/winget/install): exact ID/source and location when supported.
+- [NVM for Windows](https://github.com/coreybutler/nvm-windows): separate manager/symlink directories; no managed Node is installed by this repo.
+- [Inno Setup parameters](https://jrsoftware.org/ishelp/topic_setupcmdline.htm): `/DIR` for compatible installers. [DBeaver](https://dbeaver.com/docs/dbeaver/Windows-Silent-Install/) documents its final `/D` parameter instead.
+- [Bun](https://bun.sh/install.ps1), [pnpm](https://get.pnpm.io/install.ps1), [Deno](https://deno.land/install.ps1), [Cursor CLI](https://cursor.com/docs/cli/installation) and [Claude Code](https://code.claude.com/docs/en/setup): official PowerShell scripts.
+- [Ollama Windows](https://docs.ollama.com/windows): binary install directory and `OLLAMA_MODELS` for new model storage.
+- The robbyrussell appearance is reproduced from the inspected user theme; [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh) provides the prompt engine.
+
+## Unix sources
+
 Commands below explain installation methods; the wizard uses temporary downloaded scripts rather than piping directly where practical. Latest stable versions are resolved at installation time.
 
 | Component | Source | Method / Método |

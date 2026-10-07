@@ -15,3 +15,6 @@ node_modules/
 
 __pycache__/
 *.pyc
+
+# Private Windows overrides and test/download artifacts.
+windows.local.ps1

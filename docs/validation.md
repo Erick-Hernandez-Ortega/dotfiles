@@ -60,3 +60,19 @@ docker image rm ubuntu:24.04 archlinux:base
 ```
 
 Not yet validated live: full Zorin 18 desktop/launchers, Wayland/X11 appearance, vendor repository/package installation, Flatpak application launch, Docker service startup and AUR builds. The environment had no /dev/kvm or Zorin disk image, so no GUI VM validation is claimed. macOS routes are preserved and checked against the original catalog; no current macOS execution was available.
+
+## Windows implementation · 2026-10-06
+
+- PASS: dependency-free Windows regression suite under Windows PowerShell 5.1: 32 cases, including drive selection/custom paths, missing destinations, unknown space, existing app/Store/font detection, dependencies, installer quoting, failures/manual outcomes, JSONC preservation, idempotence, file/environment backup structure, file restore and ZIP traversal rejection.
+- PASS: full fresh-setup simulation with managers/downloads prevented creates no fixture files or directories.
+- PASS: actual Windows inventory and noninteractive dry-run with E: as the target. Before/after hashes match for the active OneDrive PowerShell profile, Windows Terminal settings and Git configuration.
+- PASS: doctor parses the existing Terminal JSONC and Windows scripts; zero configuration errors. Docker Compose responds, but the daemon is inaccessible; its service was not started.
+- PASS: modern Python portable maintenance runtime, generated catalog/manifests/matrices consistent; all original macOS/Arch/Zorin package routes preserved by cross-platform catalog checks. 83 total catalog options, 69 available Windows entries including manual options.
+- PASS: Git Bash syntax for all Bash scripts and focused Unix checks for package routes, simulated Arch installation, dependency selection and all interface pages across macOS/Arch/Zorin.
+- SKIP: real Windows file-symlink restore case: the test host cannot create symlinks without Developer Mode/elevation. The fixture test is included and reports this explicitly; file restore tests pass.
+- PENDING: full Unix unittest suite requires a Unix Python/Bash/Zsh environment; the added CI job runs it there. PowerShell 7 is not installed on this host; the CI job runs the same Windows suite under it.
+- PENDING: real Windows package installs, UAC, installer destination behavior, Store deployment, module installation, GUI navigation in a real console, SSD disconnect during a live installer and symlink restore in a permitted host. No disposable Windows VM was available and Docker was not running. No real host installation was performed.
+
+Reproduce Windows checks with `powershell -NoProfile -File tests/windows-tests.ps1`, `python3 scripts/generate-catalog.py --check`, `python3 -m unittest discover -s tests -p test_catalog.py -v`, `powershell -NoProfile -File bootstrap.ps1 -DryRun`, and `powershell -NoProfile -File scripts/windows/doctor.ps1`.
+
+`tests/windows-smoke.ps1 -DisposableMachine` is supplied for real installation checks inside a disposable Windows Sandbox/VM only; it intentionally installs software in that VM. It has not been run on the host. CI configuration is included; no remote CI result is claimed before the workflow runs.

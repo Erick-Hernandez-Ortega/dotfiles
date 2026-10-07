@@ -160,7 +160,12 @@ class InstallerTests(unittest.TestCase):
             for row in data:
                 self.assertTrue(all(k in row for k in ('mac', 'linux', 'ubuntu', 'flatpak_id')))
         self.assertEqual(len(ids), len(set(ids)))
-        self.assertEqual(len(ids), 64)
+        # Windows-only additions have no Unix routes; the original Unix catalog stays intact.
+        unix = []
+        for name in ('tools', 'apps', 'fonts'):
+            unix += [x for x in json.loads((ROOT / 'catalog' / f'{name}.json').read_text())
+                     if x['mac'] or x['linux'] or x['ubuntu']]
+        self.assertEqual(len(unix), 64)
 
 
 if __name__ == '__main__':

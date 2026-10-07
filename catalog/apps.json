@@ -13,7 +13,8 @@
     "font_family": "",
     "url": "",
     "ubuntu": "manual:https://ghostty.org/docs/install/binary",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "warp",
@@ -29,7 +30,24 @@
     "font_family": "",
     "url": "",
     "ubuntu": "repo:warp",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "warp-terminal",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "warp"
+      ],
+      "paths": [],
+      "detect": "^Warp$",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/warp-terminal",
+      "admin": true
+    }
   },
   {
     "id": "vscode",
@@ -45,7 +63,25 @@
     "font_family": "",
     "url": "",
     "ubuntu": "repo:vscode",
-    "flatpak_id": "com.visualstudio.code"
+    "flatpak_id": "com.visualstudio.code",
+    "windows": {
+      "method": "choco",
+      "package": "vscode",
+      "group": 3,
+      "default": false,
+      "location": "custom",
+      "folder": "Microsoft VS Code",
+      "commands": [
+        "code"
+      ],
+      "paths": [],
+      "detect": "^Microsoft Visual Studio Code",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/vscode",
+      "admin": true,
+      "installArgs": "/DIR=\"{destination}\""
+    }
   },
   {
     "id": "cursor",
@@ -61,7 +97,25 @@
     "font_family": "",
     "url": "",
     "ubuntu": "repo:cursor",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "cursoride",
+      "group": 3,
+      "default": false,
+      "location": "custom",
+      "folder": "Cursor",
+      "commands": [
+        "cursor"
+      ],
+      "paths": [],
+      "detect": "^Cursor",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/cursoride",
+      "admin": true,
+      "installArgs": "/DIR=\"{destination}\""
+    }
   },
   {
     "id": "zed",
@@ -77,7 +131,26 @@
     "font_family": "",
     "url": "",
     "ubuntu": "native:zed",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "native-exe",
+      "package": "zed",
+      "group": 3,
+      "default": false,
+      "location": "custom",
+      "folder": "Zed",
+      "commands": [
+        "zed"
+      ],
+      "paths": [],
+      "detect": "^Zed$",
+      "store": "",
+      "font": "",
+      "source": "https://zed.dev/docs/windows",
+      "admin": false,
+      "url": "https://github.com/zed-industries/zed/releases/latest/download/Zed-x86_64.exe",
+      "installArgs": "/DIR=\"{destination}\""
+    }
   },
   {
     "id": "sublime",
@@ -93,7 +166,25 @@
     "font_family": "",
     "url": "",
     "ubuntu": "manual:https://www.sublimetext.com/docs/linux_repositories.html",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "sublimetext4",
+      "group": 3,
+      "default": false,
+      "location": "custom",
+      "folder": "Sublime Text",
+      "commands": [
+        "subl"
+      ],
+      "paths": [],
+      "detect": "^Sublime Text",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/sublimetext4",
+      "admin": true,
+      "installArgs": "/DIR=\"{destination}\""
+    }
   },
   {
     "id": "chatgpt",
@@ -109,7 +200,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://chatgpt.com/download",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^ChatGPT",
+      "store": "",
+      "font": "",
+      "source": "https://chatgpt.com/download",
+      "admin": false
+    }
   },
   {
     "id": "claude-desktop",
@@ -125,7 +231,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://claude.ai/download",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Claude$",
+      "store": "",
+      "font": "",
+      "source": "https://claude.ai/download",
+      "admin": false
+    }
   },
   {
     "id": "bruno",
@@ -141,7 +262,24 @@
     "font_family": "",
     "url": "",
     "ubuntu": "manual:https://www.usebruno.com/downloads",
-    "flatpak_id": "com.usebruno.Bruno"
+    "flatpak_id": "com.usebruno.Bruno",
+    "windows": {
+      "method": "choco",
+      "package": "bruno",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "bruno"
+      ],
+      "paths": [],
+      "detect": "^Bruno",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/bruno",
+      "admin": true
+    }
   },
   {
     "id": "postman",
@@ -157,7 +295,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "manual:https://www.postman.com/downloads/",
-    "flatpak_id": "com.getpostman.Postman"
+    "flatpak_id": "com.getpostman.Postman",
+    "windows": {
+      "method": "choco",
+      "package": "postman",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Postman",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/postman",
+      "admin": true
+    }
   },
   {
     "id": "tabularis",
@@ -173,7 +326,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "manual:https://github.com/debba/tabularis/releases",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://github.com/debba/tabularis",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Tabularis",
+      "store": "",
+      "font": "",
+      "source": "https://github.com/debba/tabularis",
+      "admin": false
+    }
   },
   {
     "id": "compass",
@@ -189,7 +357,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "manual:https://www.mongodb.com/try/download/compass",
-    "flatpak_id": "com.mongodb.Compass"
+    "flatpak_id": "com.mongodb.Compass",
+    "windows": {
+      "method": "choco",
+      "package": "mongodb-compass",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^MongoDB Compass",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/mongodb-compass",
+      "admin": true
+    }
   },
   {
     "id": "dbeaver",
@@ -205,7 +388,23 @@
     "font_family": "",
     "url": "",
     "ubuntu": "deb:dbeaver",
-    "flatpak_id": "io.dbeaver.DBeaverCommunity"
+    "flatpak_id": "io.dbeaver.DBeaverCommunity",
+    "windows": {
+      "method": "choco",
+      "package": "dbeaver",
+      "group": 4,
+      "default": false,
+      "location": "custom",
+      "folder": "DBeaver",
+      "commands": [],
+      "paths": [],
+      "detect": "^DBeaver",
+      "store": "",
+      "font": "",
+      "source": "https://dbeaver.com/docs/dbeaver/Windows-Silent-Install/",
+      "admin": true,
+      "installArgs": "/D={destination}"
+    }
   },
   {
     "id": "docker",
@@ -221,7 +420,25 @@
     "font_family": "",
     "url": "",
     "ubuntu": "repo:docker",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "docker-desktop",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "docker"
+      ],
+      "paths": [],
+      "detect": "^Docker Desktop$",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/docker-desktop",
+      "admin": true,
+      "notes": "Docker Desktop may require WSL2/virtualization and restart. Configure disk image location manually; existing data is not moved."
+    }
   },
   {
     "id": "chrome",
@@ -237,7 +454,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "deb:chrome",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "googlechrome",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Google Chrome$",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/googlechrome",
+      "admin": true
+    }
   },
   {
     "id": "helium",
@@ -253,7 +485,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "manual:https://helium.computer/",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://helium.com/",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Helium",
+      "store": "",
+      "font": "",
+      "source": "https://helium.com/",
+      "admin": false
+    }
   },
   {
     "id": "slack",
@@ -269,7 +516,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "manual:https://slack.com/downloads/linux",
-    "flatpak_id": "com.slack.Slack"
+    "flatpak_id": "com.slack.Slack",
+    "windows": {
+      "method": "choco",
+      "package": "slack",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Slack",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/slack",
+      "admin": true
+    }
   },
   {
     "id": "discord",
@@ -285,7 +547,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "deb:discord",
-    "flatpak_id": "com.discordapp.Discord"
+    "flatpak_id": "com.discordapp.Discord",
+    "windows": {
+      "method": "choco",
+      "package": "discord",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Discord",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/discord",
+      "admin": true
+    }
   },
   {
     "id": "whatsapp",
@@ -301,7 +578,23 @@
     "font_family": "",
     "url": "",
     "ubuntu": "",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "winget",
+      "package": "9NKSQGP7F2NH",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^WhatsApp",
+      "store": "5319275A.WhatsAppDesktop",
+      "font": "",
+      "source": "https://apps.microsoft.com/detail/9nksqgp7f2nh",
+      "admin": false,
+      "sourceName": "msstore"
+    }
   },
   {
     "id": "notion",
@@ -317,7 +610,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "notion",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Notion",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/notion",
+      "admin": true
+    }
   },
   {
     "id": "linear",
@@ -333,7 +641,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://linear.app/download",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Linear",
+      "store": "",
+      "font": "",
+      "source": "https://linear.app/download",
+      "admin": false
+    }
   },
   {
     "id": "spotify",
@@ -349,7 +672,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "flatpak:com.spotify.Client",
-    "flatpak_id": "com.spotify.Client"
+    "flatpak_id": "com.spotify.Client",
+    "windows": {
+      "method": "choco",
+      "package": "spotify",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Spotify",
+      "store": "SpotifyAB.SpotifyMusic",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/spotify",
+      "admin": true
+    }
   },
   {
     "id": "steam",
@@ -365,7 +703,22 @@
     "font_family": "",
     "url": "",
     "ubuntu": "apt:steam-installer",
-    "flatpak_id": "com.valvesoftware.Steam"
+    "flatpak_id": "com.valvesoftware.Steam",
+    "windows": {
+      "method": "choco",
+      "package": "steam",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Steam$",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/steam",
+      "admin": true
+    }
   },
   {
     "id": "android",
@@ -381,7 +734,23 @@
     "font_family": "",
     "url": "",
     "ubuntu": "manual:https://developer.android.com/studio",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "androidstudio",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Android Studio",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/androidstudio",
+      "admin": true,
+      "notes": "Configure SDK location in Android Studio; SDK downloads are not automated."
+    }
   },
   {
     "id": "xcode",
@@ -397,7 +766,8 @@
     "font_family": "",
     "url": "",
     "ubuntu": "",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "rectangle",
@@ -413,7 +783,8 @@
     "font_family": "",
     "url": "",
     "ubuntu": "",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "appcleaner",
@@ -429,7 +800,8 @@
     "font_family": "",
     "url": "",
     "ubuntu": "",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "clipy",
@@ -445,7 +817,8 @@
     "font_family": "",
     "url": "",
     "ubuntu": "",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": null
   },
   {
     "id": "tableplus",
@@ -461,7 +834,22 @@
     "app": "",
     "font_family": "",
     "url": "https://tableplus.com/",
-    "flatpak_id": ""
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://tableplus.com/windows",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^TablePlus",
+      "store": "",
+      "font": "",
+      "source": "https://tableplus.com/windows",
+      "admin": false
+    }
   },
   {
     "id": "firefox",
@@ -477,7 +865,22 @@
     "app": "",
     "font_family": "",
     "url": "https://www.mozilla.org/firefox/",
-    "flatpak_id": "org.mozilla.firefox"
+    "flatpak_id": "org.mozilla.firefox",
+    "windows": {
+      "method": "choco",
+      "package": "firefox",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Mozilla Firefox",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/firefox",
+      "admin": true
+    }
   },
   {
     "id": "vlc",
@@ -493,7 +896,24 @@
     "app": "",
     "font_family": "",
     "url": "https://www.videolan.org/vlc/",
-    "flatpak_id": "org.videolan.VLC"
+    "flatpak_id": "org.videolan.VLC",
+    "windows": {
+      "method": "choco",
+      "package": "vlc",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "vlc"
+      ],
+      "paths": [],
+      "detect": "^VLC media player",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/vlc",
+      "admin": true
+    }
   },
   {
     "id": "zapzap",
@@ -509,6 +929,359 @@
     "app": "",
     "font_family": "",
     "url": "https://github.com/rtosta/zapzap",
-    "flatpak_id": "com.rtosta.zapzap"
+    "flatpak_id": "com.rtosta.zapzap",
+    "windows": null
+  },
+  {
+    "id": "windows-terminal",
+    "label": "Windows Terminal",
+    "description_es": "Terminal con pestañas, perfiles y atajos de teclado.",
+    "description_en": "Terminal with tabs, profiles and keyboard shortcuts.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://community.chocolatey.org/packages/microsoft-windows-terminal",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "microsoft-windows-terminal",
+      "group": 4,
+      "default": true,
+      "location": "system",
+      "folder": "",
+      "commands": [
+        "wt"
+      ],
+      "paths": [],
+      "detect": "",
+      "store": "Microsoft.WindowsTerminal",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/microsoft-windows-terminal",
+      "admin": true
+    }
+  },
+  {
+    "id": "heidisql",
+    "label": "HeidiSQL",
+    "description_es": "Cliente para explorar bases de datos SQL.",
+    "description_en": "Client for browsing SQL databases.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://community.chocolatey.org/packages/heidisql",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "heidisql",
+      "group": 4,
+      "default": false,
+      "location": "custom",
+      "folder": "HeidiSQL",
+      "commands": [],
+      "paths": [],
+      "detect": "^HeidiSQL",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/heidisql",
+      "admin": true,
+      "installArgs": "/DIR=\"{destination}\""
+    }
+  },
+  {
+    "id": "mariadb",
+    "label": "MariaDB",
+    "description_es": "Servidor SQL opcional; conserva los datos existentes.",
+    "description_en": "Optional SQL server; preserves existing data.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://community.chocolatey.org/packages/mariadb",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "mariadb",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^MariaDB",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/mariadb",
+      "admin": true
+    }
+  },
+  {
+    "id": "pycharm",
+    "label": "PyCharm",
+    "description_es": "IDE de Python, edición Community.",
+    "description_en": "Python IDE, Community edition.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://community.chocolatey.org/packages/pycharm-community",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "pycharm-community",
+      "group": 3,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^PyCharm",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/pycharm-community",
+      "admin": true
+    }
+  },
+  {
+    "id": "webstorm",
+    "label": "WebStorm",
+    "description_es": "IDE para JavaScript y TypeScript; requiere su licencia correspondiente.",
+    "description_en": "JavaScript and TypeScript IDE; requires the appropriate license.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://community.chocolatey.org/packages/webstorm",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "webstorm",
+      "group": 3,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^WebStorm",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/webstorm",
+      "admin": true
+    }
+  },
+  {
+    "id": "winrar",
+    "label": "WinRAR",
+    "description_es": "Compresión y extracción de archivos; requiere su licencia correspondiente.",
+    "description_en": "Archive compression and extraction; requires the appropriate license.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://community.chocolatey.org/packages/winrar",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "choco",
+      "package": "winrar",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^WinRAR",
+      "store": "",
+      "font": "",
+      "source": "https://community.chocolatey.org/packages/winrar",
+      "admin": true
+    }
+  },
+  {
+    "id": "yaak",
+    "label": "Yaak",
+    "description_es": "Cliente de API; instalación desde su sitio oficial.",
+    "description_en": "API client; installation from its official site.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://yaak.app/",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://yaak.app/",
+      "group": 4,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [
+        "{software}\\Yaak\\Yaak.exe"
+      ],
+      "detect": "^Yaak",
+      "store": "",
+      "font": "",
+      "source": "https://yaak.app/",
+      "admin": false
+    }
+  },
+  {
+    "id": "windsurf",
+    "label": "Windsurf",
+    "description_es": "Editor con asistencia de IA; instalación oficial.",
+    "description_en": "Editor with AI assistance; official installation.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://windsurf.com/download",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://windsurf.com/download",
+      "group": 3,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Windsurf",
+      "store": "",
+      "font": "",
+      "source": "https://windsurf.com/download",
+      "admin": false
+    }
+  },
+  {
+    "id": "trae",
+    "label": "Trae",
+    "description_es": "Editor de código con asistencia de IA.",
+    "description_en": "Code editor with AI assistance.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://www.trae.ai/download",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://www.trae.ai/download",
+      "group": 3,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Trae",
+      "store": "",
+      "font": "",
+      "source": "https://www.trae.ai/download",
+      "admin": false
+    }
+  },
+  {
+    "id": "comet",
+    "label": "Comet",
+    "description_es": "Navegador de Perplexity; instalación oficial.",
+    "description_en": "Perplexity browser; official installation.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://www.perplexity.ai/comet",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "manual",
+      "package": "https://www.perplexity.ai/comet",
+      "group": 5,
+      "default": false,
+      "location": "system",
+      "folder": "",
+      "commands": [],
+      "paths": [],
+      "detect": "^Comet$",
+      "store": "",
+      "font": "",
+      "source": "https://www.perplexity.ai/comet",
+      "admin": false
+    }
+  },
+  {
+    "id": "ollama",
+    "label": "Ollama",
+    "description_es": "Ejecuta modelos locales; permite elegir binarios y nuevos modelos.",
+    "description_en": "Run local models; choose binaries and new model storage.",
+    "default": false,
+    "kind": "app",
+    "command": "",
+    "mac": "",
+    "linux": "",
+    "app": "",
+    "font_family": "",
+    "url": "https://docs.ollama.com/windows",
+    "ubuntu": "",
+    "flatpak_id": "",
+    "windows": {
+      "method": "native-exe",
+      "package": "ollama",
+      "group": 2,
+      "default": false,
+      "location": "custom",
+      "folder": "Ollama",
+      "commands": [
+        "ollama"
+      ],
+      "paths": [],
+      "detect": "^Ollama",
+      "store": "",
+      "font": "",
+      "source": "https://docs.ollama.com/windows",
+      "admin": false,
+      "url": "https://ollama.com/download/OllamaSetup.exe",
+      "installArgs": "/DIR=\"{destination}\"",
+      "dataVariable": "OLLAMA_MODELS",
+      "dataFolder": "Ollama"
+    }
   }
 ]

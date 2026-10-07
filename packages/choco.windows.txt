@@ -1,0 +1,38 @@
+# Generated reference only; bootstrap.ps1 installs selected items individually.
+gh # GitHub CLI
+jq # jq
+zoxide # zoxide
+microsoft-openjdk17 # Java 17 JDK
+ngrok # ngrok
+git.install # Git
+oh-my-posh # Oh My Posh
+powershell-core # PowerShell 7
+python3 # Python 3
+warp-terminal # Warp
+vscode # Visual Studio Code
+cursoride # Cursor
+sublimetext4 # Sublime Text
+bruno # Bruno
+postman # Postman
+mongodb-compass # MongoDB Compass
+dbeaver # DBeaver
+docker-desktop # Docker
+googlechrome # Google Chrome
+slack # Slack
+discord # Discord
+notion # Notion
+spotify # Spotify
+steam # Steam
+androidstudio # Android Studio
+firefox # Firefox
+vlc # VLC
+microsoft-windows-terminal # Windows Terminal
+heidisql # HeidiSQL
+mariadb # MariaDB
+pycharm-community # PyCharm
+webstorm # WebStorm
+winrar # WinRAR
+jetbrainsmono # JetBrains Mono
+nerd-fonts-JetBrainsMono # JetBrains Mono Nerd Font
+nerd-fonts-Hack # Hack Nerd Font
+nerd-fonts-FiraCode # FiraCode Nerd Font

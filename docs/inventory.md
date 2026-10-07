@@ -28,3 +28,15 @@ No packages, active dotfiles, development folders or user caches were changed wh
 Inspected this EndeavourOS x86_64 computer: Hyprland/HyDE with Wayland; development under `~/Documentos/Dev`; NVM from pacman plus XDG versions; Node, Bun, pnpm, Deno, Ruby/rbenv and Java 17; Docker and Compose; Ghostty, Warp, VS Code, Cursor, Zed, Postman, Tabularis, MongoDB Compass, TablePlus, lazyworktree, ngrok, Watchman, Firefox, VLC, Spotify and Steam.
 
 Existing rbenv initialization was repeated in the active `.zshrc`. This update does not edit that active file; applying the repo shell supplies a single guarded initialization. Linux desktop configs, IDE configs, credentials and application data are not imported.
+
+## Windows inspection · 2026-10-06
+
+Read-only inspection of the current x64 Windows computer found Windows PowerShell 5.1, Chocolatey and WinGet. E: is labeled `SSD externo`; applications are distributed between `E:\Software`, Program Files and per-user directories. Development uses `E:\Development`, with Frontend/{Angular,Next,React,Vue}, Backend/{Nest,Node}, Mobile/React Native, Desktop, AI/OpenCode and Others. Existing Models data is not copied or moved.
+
+The PowerShell profile is under OneDrive Documents. It initializes Oh My Posh with robbyrussell, Terminal-Icons and Chocolatey completions. Windows Terminal uses One Half Dark and FiraCode Nerd Font Mono; its existing elevation setting is not applied to new installations. JetBrains Mono is also installed.
+
+NVM for Windows uses `E:\Software\nvm` and `C:\nvm4w\nodejs`. Bun, pnpm, Deno, Java 17, Android SDK, Docker Desktop/Compose, OpenCode, Cursor Agent, Codex and Ollama are present. Detected development apps include VS Code, Cursor, Zed, Warp, Postman, DBeaver, MongoDB Compass, HeidiSQL, MariaDB, Android Studio, PyCharm, WebStorm, Windsurf and Trae. User apps include Chrome, Comet, Discord, WhatsApp, Notion, Linear, Claude, Spotify, Steam, VLC and WinRAR.
+
+The `python` command resolves to Python 2; `python3` resolves to a Microsoft Store alias rather than a verified interpreter. Docker Compose responds, but the Docker daemon was not accessible during inspection. Portable apps can escape registry detection; Yaak was found as an application directory and remains a manual catalog option unless its executable is recognized.
+
+No host applications, active profiles, Git configuration, persistent environment variables or existing development directories were changed while implementing Windows support. A Python 3 portable runtime was downloaded inside the ignored workspace `.state` directory solely for maintenance checks.

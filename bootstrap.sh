@@ -2,6 +2,24 @@
 # Interactive personal setup; no Node, Python or jq required to start.
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Git Bash/MSYS installs the native Windows setup. WSL remains a Linux target.
+case "$(uname -s)" in
+  MINGW*|MSYS*|CYGWIN*)
+    windows_args=()
+    while (( $# )); do
+      case "$1" in
+        --list) windows_args+=(-List);;
+        --dry-run) windows_args+=(-DryRun);;
+        --lang) shift; windows_args+=(-Lang "${1:-}");;
+        --help|-h) echo 'powershell -NoProfile -File bootstrap.ps1 [-List] [-DryRun] [-Lang es|en] [-TargetDrive E:]'; exit 0;;
+        *) echo "Unknown option: $1"; exit 2;;
+      esac
+      shift
+    done
+    MSYS2_ARG_CONV_EXCL='*' powershell.exe -NoProfile -File "$(cygpath -w "$ROOT/bootstrap.ps1")" "${windows_args[@]}"
+    exit $?;;
+esac
+[[ -z "${WSL_DISTRO_NAME:-}" ]] || echo "WSL: configuring Linux ($WSL_DISTRO_NAME), not the Windows host."
 source "$ROOT/scripts/common.sh"
 parse_args "$@"
 (( LIST_ONLY )) && { show_inventory; exit 0; }

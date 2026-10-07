@@ -1,8 +1,23 @@
-# Ramón's dotfiles · macOS + EndeavourOS + Zorin 18
+# Ramón's dotfiles · Windows + macOS + EndeavourOS + Zorin 18
 
 English · [Español](README.es.md)
 
-An interactive wizard to set up my terminal and choose applications on a new Unix computer. No Hyprland, Office or editor extensions are installed.
+An interactive wizard to set up my terminal and choose applications on a new Windows or Unix computer. No Hyprland, Office or editor extensions are installed.
+
+## Windows and your chosen SSD
+
+```powershell
+powershell -NoProfile -File .\bootstrap.ps1 -List
+powershell -NoProfile -File .\bootstrap.ps1 -DryRun
+powershell -NoProfile -File .\bootstrap.ps1
+powershell -NoProfile -File .\bootstrap.ps1 -TargetDrive E: -Lang en
+```
+
+Windows 10/11 x64 uses Chocolatey primarily, with explicit WinGet and official installer/release routes. Choose a mounted drive and edit Software, Development and Data roots. E: is proposed when available; custom locations are used only where supported. Review shows exceptions, prerequisites and elevation before execution. Existing applications/data stay in their current locations.
+
+PowerShell keeps Oh My Posh/robbyrussell and Terminal-Icons; Windows Terminal appearance is optional. OneDrive Documents and existing NVM for Windows are supported. Node is not installed automatically. Git Bash delegates to PowerShell; WSL configures Linux.
+
+See [Windows usage and recovery](docs/windows.md), [Windows compatibility](docs/windows-compatibility.md), and `powershell -NoProfile -File .\scripts\windows\doctor.ps1` for read-only diagnostics.
 
 ## Linux compatibility
 
@@ -41,7 +56,7 @@ No selection files are persisted. `--list` keeps the detailed inventory. Noninte
 - New installations request the latest available stable release. No version pins, automatic updates or saved selections. Installed apps are preserved; update them through their normal managers.
 - NVM only: no Node version is installed. Later, `nvm install --lts` downloads the available Node LTS through NVM.
 - Bun/pnpm/Deno and coding agents use standalone installs, without adding Node through Brew/npm.
-- OpenCode exclusively uses its official web installer.
+- Unix OpenCode uses its official web installer. Windows uses its official portable distribution to support the chosen drive.
 - Existing Git is reused; name/email are hardcoded, authentication tokens are never copied.
 - Editor snapshots remain reference-only. No settings or extensions are restored; use cloud sync.
 - Detection checks commands, files, apps, fonts and packages. Presence does not prove license, login or complete application health.
