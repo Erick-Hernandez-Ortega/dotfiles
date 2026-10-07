@@ -3,6 +3,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$ROOT/catalog/options.sh"
+source "$ROOT/scripts/linux.sh"
 DRY_RUN=0
 LANGUAGE=es
 LIST_ONLY=0
@@ -41,30 +42,42 @@ parse_args() {
     shift
   done
   case "$(uname -s)" in
-    Darwin) OS=mac;;
-    Linux) OS=linux; if ! command -v pacman >/dev/null; then echo 'Linux support requires EndeavourOS / Arch with pacman.'; exit 1; fi;;
-    *) echo 'Supported systems: macOS and EndeavourOS / Arch Linux.'; exit 1;;
+    Darwin) OS=mac; PLATFORM_FAMILY=mac;;
+    Linux) OS=linux; detect_linux || exit 1;;
+    *) echo 'Supported systems: macOS, EndeavourOS / Arch Linux, Zorin 18.'; exit 1;;
   esac
 }
 row() {
   local line
   while IFS= read -r line; do
-    IFS='|' read -r ID LABEL ES EN DEFAULT KIND CMD MAC LINUX APP FAMILY <<< "$line"
+    IFS='|' read -r ID LABEL ES EN DEFAULT KIND CMD MAC LINUX APP FAMILY UBUNTU FLATPAK_ID SOURCE_URL <<< "$line"
     [[ "$ID" == "$1" ]] && return 0
   done <<< "$CATALOG"
   return 1
 }
-route() { if [[ "$OS" == mac ]]; then printf '%s' "$MAC"; else printf '%s' "$LINUX"; fi; }
+route() {
+  if [[ "$OS" == mac ]]; then printf '%s' "$MAC"
+  elif [[ "$PLATFORM_FAMILY" == ubuntu ]]; then printf '%s' "$UBUNTU"
+  else printf '%s' "$LINUX"; fi
+}
 has_packages() {
   local names="$1" package
-  for package in $names; do pacman -Q "$package" >/dev/null 2>&1 || return 1; done
+  for package in $names; do
+    if [[ "$PLATFORM_FAMILY" == ubuntu ]]; then
+      [[ "$(dpkg-query -W -f='${Status}' "$package" 2>/dev/null)" == 'install ok installed' ]] || return 1
+    else pacman -Q "$package" >/dev/null 2>&1 || return 1; fi
+  done
 }
 is_installed() {
   local selected_route package brew_location brew_prefix font_pattern font_dir
   selected_route="$(route)"
   case "$ID" in
     omz) [[ -r "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]]; return;;
-    nvm) [[ -s "$HOME/.nvm/nvm.sh" ]]; return;;
+    nvm)
+      if [[ "$OS" == mac ]]; then [[ -s "$HOME/.nvm/nvm.sh" ]]; return; fi
+      [[ -n "${NVM_DIR:-}" && -s "$NVM_DIR/nvm.sh" ]] && return 0
+      [[ -s "$HOME/.nvm/nvm.sh" || -s "${XDG_CONFIG_HOME:-$HOME/.config}/nvm/nvm.sh" || -s /usr/share/nvm/nvm.sh ]] && return 0
+      return 1;;
     cursor-cli) command -v agent >/dev/null 2>&1 || command -v cursor-agent >/dev/null 2>&1; return;;
     autosuggestions|syntax-highlighting)
       for package in /opt/homebrew /usr/local /usr; do
@@ -74,6 +87,26 @@ is_installed() {
       [[ "$ID" == autosuggestions ]] && [[ -r /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh || -r /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && return 0
       ;;
   esac
+  if [[ "$OS" == linux ]]; then
+    if [[ -n "$FLATPAK_ID" ]]; then
+      # flatpak info initializes user data even in inventory/dry-run mode.
+      # Read deployment metadata directly to keep detection strictly read-only.
+      [[ -r "${XDG_DATA_HOME:-$HOME/.local/share}/flatpak/app/$FLATPAK_ID/current/active/metadata" ||
+         -r "/var/lib/flatpak/app/$FLATPAK_ID/current/active/metadata" ]] && return 0
+    fi
+    if [[ "$ID" == docker ]]; then
+      command -v docker >/dev/null && command -v dockerd >/dev/null && docker compose version >/dev/null 2>&1
+      return
+    fi
+    case "$ID" in
+      bat) command -v bat >/dev/null || command -v batcat >/dev/null; return;;
+      fd) command -v fd >/dev/null || command -v fdfind >/dev/null; return;;
+      zed) command -v zed >/dev/null || command -v zeditor >/dev/null || [[ -x "$HOME/.local/bin/zed" ]]; return;;
+      java17)
+        if [[ "$PLATFORM_FAMILY" == ubuntu ]]; then has_packages openjdk-17-jdk
+        else has_packages jdk17-openjdk; fi; return;;
+    esac
+  fi
   if [[ "$KIND" == font ]]; then
     if [[ "$OS" == mac ]]; then
       case "$ID" in
@@ -87,7 +120,7 @@ is_installed() {
         jetbrains-nerd) font_pattern='JetBrainsMonoNerdFont-Regular.*';;
         hack-nerd) font_pattern='HackNerdFont-Regular.*';;
       esac
-      for font_dir in "$HOME/.local/share/fonts" "$HOME/.fonts" /usr/local/share/fonts /usr/share/fonts; do
+      for font_dir in "${XDG_DATA_HOME:-$HOME/.local/share}/fonts" "$HOME/.local/share/fonts" "$HOME/.fonts" /usr/local/share/fonts /usr/share/fonts; do
         if [[ -d "$font_dir" ]] && [[ -n "$(find "$font_dir" -iname "$font_pattern" -print -quit 2>/dev/null)" ]]; then return 0; fi
       done
     fi
@@ -105,7 +138,7 @@ is_installed() {
         else [[ -d "$brew_prefix/Cellar/${package##*/}" ]] && return 0; fi
       done
     fi
-  elif [[ -n "$selected_route" && "$selected_route" != native:* ]]; then
+  elif [[ "$selected_route" == pacman:* || "$selected_route" == aur:* || "$selected_route" == apt:* ]]; then
     has_packages "${selected_route#*:}" && return 0
   fi
   # A Docker CLI alone does not satisfy the selected Linux Engine + Compose bundle.
@@ -116,14 +149,14 @@ is_installed() {
 show_inventory() {
   local line selected_route status
   msg '╭─ RAMON · UNIX SETUP ─╮' '╭─ RAMON · UNIX SETUP ─╮'
-  printf 'OS: %s | Architecture: %s | Shell: %s\n' "$OS" "$(uname -m)" "${SHELL:-unknown}"
+  printf 'OS: %s | Architecture: %s | Shell: %s\n' "${DISTRO_ID:-$OS}" "$(uname -m)" "${SHELL:-unknown}"
   msg 'Git: se reutiliza si está disponible.' 'Git: reuse the existing installation when available.'
   command -v git >/dev/null && command -v git || true
   while IFS= read -r line; do
-    IFS='|' read -r ID LABEL ES EN DEFAULT KIND CMD MAC LINUX APP FAMILY <<< "$line"
+    IFS='|' read -r ID LABEL ES EN DEFAULT KIND CMD MAC LINUX APP FAMILY UBUNTU FLATPAK_ID SOURCE_URL <<< "$line"
     selected_route="$(route)"
     [[ -n "$selected_route" ]] || continue
-    if is_installed; then status='✓ installed / instalado'; else status='○ available / disponible'; fi
+    if is_installed; then status='✓ installed / instalado'; elif [[ "$selected_route" == manual:* ]]; then status='↗ manual'; else status='○ selectable / seleccionable'; fi
     printf '\n%s — %s\n' "$LABEL" "$status"
     if [[ "$LANGUAGE" == es ]]; then printf '  %s\n' "$ES"; else printf '  %s\n' "$EN"; fi
     printf '  Method / Método: %s\n' "$selected_route"
@@ -135,7 +168,7 @@ choose_group() {
   printf "\n"
   msg "$title_es" "$title_en"
   while IFS= read -r line; do
-    IFS='|' read -r ID LABEL ES EN DEFAULT KIND CMD MAC LINUX APP FAMILY <<< "$line"
+    IFS='|' read -r ID LABEL ES EN DEFAULT KIND CMD MAC LINUX APP FAMILY UBUNTU FLATPAK_ID SOURCE_URL <<< "$line"
     [[ "$KIND" == "$group" ]] || continue
     selected_route="$(route)"
     [[ -n "$selected_route" ]] || continue
@@ -174,8 +207,12 @@ choose_group() {
 ensure_temp() {
   (( DRY_RUN )) && return 0
   [[ -n "$TEMP_DIR" ]] && return 0
-  TEMP_DIR="$(mktemp -d "${TMPDIR:-/tmp}/ramon-dotfiles.XXXXXX")"
-  mkdir -p "$TEMP_DIR/downloads" "$TEMP_DIR/cache" "$TEMP_DIR/pacman" "$TEMP_DIR/aur"
+  local temporary_root="${TMPDIR:-/tmp}"
+  [[ "$OS" != linux ]] || temporary_root=/tmp
+  TEMP_DIR="$(mktemp -d "$temporary_root/ramon-dotfiles.XXXXXX")" || return 1
+  # pacman/alpm and APT/_apt need traversal, but cannot list this run's directory.
+  [[ "$OS" != linux ]] || chmod 711 "$TEMP_DIR" || return 1
+  mkdir -p "$TEMP_DIR/downloads" "$TEMP_DIR/cache" "$TEMP_DIR/pacman" "$TEMP_DIR/aur" "$TEMP_DIR/apt/partial" || return 1
   export HOMEBREW_CACHE="$TEMP_DIR/cache" HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_INSTALL_CLEANUP=1
 }
 finish_temp() {
@@ -226,7 +263,7 @@ ensure_git() {
     (( DRY_RUN )) && return 0
     return 1
   fi
-  run sudo pacman -Syu --needed git curl || return 1
+  linux_packages git curl || return 1
 }
 install_native() {
   local name="$1" tag metadata
@@ -247,6 +284,9 @@ install_native() {
     cursor-cli) fetch_install cursor-cli https://cursor.com/install bash;;
     codex) fetch_install codex https://chatgpt.com/codex/install.sh sh;;
     claude-code) fetch_install claude-code https://claude.ai/install.sh bash;;
+    uv) fetch_install uv https://astral.sh/uv/install.sh sh;;
+    zed) fetch_install zed https://zed.dev/install.sh sh;;
+    jetbrains-nerd|hack-nerd) linux_nerd_font "$name";;
     *) echo "Unknown native installer: $name"; return 1;;
   esac
 }
@@ -255,24 +295,40 @@ install_option() {
   row "$id" || return 1
   if is_installed; then printf '✓ %s — already installed / ya instalado\n' "$LABEL"; return; fi
   selected_route="$(route)"; package="${selected_route#*:}"
+  [[ -n "$selected_route" ]] || { echo "Unavailable on this platform: $id"; return 1; }
+  if [[ "$OS" == linux && "$(uname -m)" != x86_64 ]]; then
+    echo 'Automatic Linux installs currently support x86_64 only.'; return 1
+  fi
+  if [[ "$OS" == linux && "$selected_route" == native:* && "$ID" != jetbrains-nerd && "$ID" != hack-nerd ]]; then
+    linux_prerequisites curl unzip || return 1
+    [[ "$ID" != omz ]] || ensure_git || return 1
+  fi
   printf '\n→ %s\n' "$LABEL"
-  if [[ "$OS" == linux && "$ID" == steam ]] && ! pacman -Si steam >/dev/null 2>&1; then
+  if [[ "$OS" == linux && "$PLATFORM_FAMILY" == arch && "$ID" == steam ]] && ! pacman -Si steam >/dev/null 2>&1; then
     echo 'Steam needs the multilib repository enabled. Enable it manually and rerun.'; return 1
   fi
   case "$selected_route" in
     brew:*) ensure_brew || return 1; run brew install "$package" || return 1;;
     cask:*) ensure_brew || return 1; run brew install --cask "$package" || return 1;;
-    pacman:*) ensure_temp; run sudo pacman -Syu --needed --cachedir "${TEMP_DIR:-/tmp/ramon-dotfiles-simulation}/pacman" $package || return 1;;
+    pacman:*|apt:*) linux_packages $package || return 1;;
+    deb:*) linux_deb "$package" || return 1;;
+    repo:*) linux_repo "$package" || return 1;;
+    flatpak:*) linux_flatpak "$package" || return 1;;
     aur:*)
       ensure_temp
       if ! command -v yay >/dev/null; then
         msg 'Se necesita yay; en EndeavourOS: sudo pacman -Syu --needed yay' 'yay is required; on EndeavourOS: sudo pacman -Syu --needed yay'
         return 1
       fi
+      linux_packages base-devel || return 1
       # yay remains interactive so source/build reviews stay visible.
       run yay -S --needed --builddir "${TEMP_DIR:-/tmp/ramon-dotfiles-simulation}/aur" --cachedir "${TEMP_DIR:-/tmp/ramon-dotfiles-simulation}/pacman" "$package" || return 1;;
     native:*) install_native "$package" || return 1;;
     manual:xcode) msg 'Instala Xcode desde App Store y completa su primera apertura. El asistente no lo descarga.' 'Install Xcode from the App Store and finish its first launch. The assistant does not download it.'; return 2;;
+    manual:*)
+      printf 'Manual installation / Instalación manual: %s\n' "$package"
+      MANUAL+=("$id")
+      return 0;;
     *) echo "Unsupported route: $selected_route"; return 1;;
   esac
   if (( ! DRY_RUN )); then
@@ -289,38 +345,42 @@ backup() {
     BACKUP_DIR="$HOME/.local/state/ramon-dotfiles/backups/$(date +%Y%m%d-%H%M%S)-$$"
     mkdir -p "$BACKUP_DIR"
   fi
-  cp -pPR "$target" "$BACKUP_DIR/$name"
+  cp -pPR "$target" "$BACKUP_DIR/$name" || return 1
+  # Tab-separated manifest permits safe restore of only files backed up by this run.
+  [[ "$target" != *$'\t'* && "$target" != *$'\n'* ]] || return 1
+  printf '%s\t%s\n' "$name" "$target" >> "$BACKUP_DIR/manifest.tsv"
 }
 link_file() {
   local source="$1" target="$2" name="$3"
   if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then return 0; fi
   if [[ -d "$target" && ! -L "$target" ]]; then echo "Refusing to replace directory: $target"; return 1; fi
-  backup "$target" "$name"
-  run mkdir -p "$(dirname "$target")"
+  backup "$target" "$name" || return 1
+  run mkdir -p "$(dirname "$target")" || return 1
   run ln -sfn "$source" "$target"
 }
 configure_shell() {
   local selected_source
-  link_file "$ROOT/shell/.zshrc" "$HOME/.zshrc" zshrc
+  if [[ "$OS" == linux ]]; then linux_prerequisites zsh || return 1; fi
+  link_file "$ROOT/shell/.zshrc" "$HOME/.zshrc" zshrc || return 1
   # Preserve unrelated login-shell settings in an existing zprofile.
   if [[ ! -e "$HOME/.zprofile" && ! -L "$HOME/.zprofile" ]]; then
-    link_file "$ROOT/shell/.zprofile" "$HOME/.zprofile" zprofile
+    link_file "$ROOT/shell/.zprofile" "$HOME/.zprofile" zprofile || return 1
   elif [[ -L "$HOME/.zprofile" && "$(readlink "$HOME/.zprofile")" == "$ROOT/shell/.zprofile" ]]; then
     : # Already linked: never append a source of itself.
   elif ! grep -F 'ramon-dotfiles zprofile' "$HOME/.zprofile" >/dev/null 2>&1; then
-    backup "$HOME/.zprofile" zprofile
+    backup "$HOME/.zprofile" zprofile || return 1
     if (( DRY_RUN )); then printf '  [dry-run] append portable Homebrew initialization to ~/.zprofile\n'
     else printf '\n# ramon-dotfiles zprofile\nsource %q\n' "$ROOT/shell/.zprofile" >> "$HOME/.zprofile"; fi
   fi
   for selected_source in tools.zsh aliases.zsh; do
-    link_file "$ROOT/shell/$selected_source" "$HOME/.config/ramon-dotfiles/$selected_source" "$selected_source"
+    link_file "$ROOT/shell/$selected_source" "$HOME/.config/ramon-dotfiles/$selected_source" "$selected_source" || return 1
   done
 }
 change_shell() {
   local zsh_path
   zsh_path="$(command -v zsh || true)"
   if [[ -z "$zsh_path" ]]; then
-    if [[ "$OS" == linux ]]; then run sudo pacman -Syu --needed zsh || return 1
+    if [[ "$OS" == linux ]]; then linux_packages zsh || return 1
     else echo 'Zsh is missing on this Mac.'; return 1; fi
     zsh_path="$(command -v zsh || true)"
     (( DRY_RUN )) && zsh_path=/usr/bin/zsh
@@ -373,9 +433,10 @@ cleanup_run() {
     mkdir -p "$destination"
     [[ -d "$TEMP_DIR/cache" ]] && cp -R "$TEMP_DIR/cache" "$destination/homebrew"
     [[ -d "$TEMP_DIR/pacman" ]] && cp -R "$TEMP_DIR/pacman" "$destination/pacman"
+    [[ -d "$TEMP_DIR/apt" ]] && cp -R "$TEMP_DIR/apt" "$destination/apt"
     printf 'Package downloads retained: %s\n' "$destination"
   fi
-  if [[ "$OS" == linux && -n "$PREVIOUS_PACKAGES" && -f "$PREVIOUS_PACKAGES" ]]; then
+  if [[ "$OS" == linux && "$PLATFORM_FAMILY" == arch && -n "$PREVIOUS_PACKAGES" && -f "$PREVIOUS_PACKAGES" ]]; then
     local package
     local new_orphans=()
     while IFS= read -r package; do

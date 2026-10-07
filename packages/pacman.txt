@@ -1,4 +1,4 @@
-# Reference only; official/web installers are separate.
+# Generated reference only; the wizard installs selected items individually.
 zsh-autosuggestions # Suggests commands from your shell history.
 zsh-syntax-highlighting # Highlights shell commands and typing errors.
 fastfetch # Displays system information when a terminal opens.
@@ -10,11 +10,20 @@ github-cli # Signs in to GitHub and manages repositories and pull requests.
 ripgrep # Searches text quickly inside files and projects.
 fd # Finds files and directories with simple syntax.
 uv # Manages Python tools, environments and versions.
+jq # Processes and queries JSON.
+fzf # Searches files and history interactively.
+zoxide # Jumps to frequent directories with z.
+rsync # Copies and synchronizes directories.
+rbenv ruby-build # Manages Ruby versions; does not automatically install Ruby.
+jdk17-openjdk # Java tools for Android development.
 ghostty # Fast GPU-accelerated terminal.
 zed # Fast collaborative code editor.
+dbeaver # SQL client for multiple databases.
 docker docker-compose # Docker Desktop on Mac; Engine and Compose on Linux.
 discord # Community chat and calls.
 steam # Game library and installer; Linux requires multilib.
+firefox # Browser for everyday use and web testing.
+vlc # Media player.
 ttf-jetbrains-mono # Monospaced programming font.
 ttf-jetbrains-mono-nerd # JetBrains Mono with symbols for eza and terminal prompts.
 ttf-hack-nerd # Hack font with extra terminal symbols.

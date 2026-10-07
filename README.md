@@ -1,8 +1,20 @@
-# Ramón's dotfiles · macOS + EndeavourOS
+# Ramón's dotfiles · macOS + EndeavourOS + Zorin 18
 
 English · [Español](README.es.md)
 
 An interactive wizard to set up my terminal and choose applications on a new Unix computer. No Hyprland, Office or editor extensions are installed.
+
+## Linux compatibility
+
+Arch/EndeavourOS and Zorin 18 (Ubuntu 24.04/noble), x86_64, have separate catalog routes. See the [complete Linux matrix](docs/linux-compatibility.md). macOS retains its existing package routes and appearance.
+
+Arch performs one full upgrade before the first selected package install; AUR requires yay and adds base-devel only when needed. APT refreshes metadata without a general upgrade. Vendor repositories are shown before confirmation; manual entries print upstream instructions and remain pending. Flatpak uses a user Flathub installation. Existing installations are reused.
+
+Linux recognizes XDG/system NVM, localized Documents paths, batcat/fdfind and optional rbenv/fzf/zoxide initialization. NVM still installs no Node. Optional actions enable Docker without changing groups, apply portable Fastfetch and set Ghostty's Linux appearance with JetBrains Mono Nerd Font. Desktop and IDE settings remain outside this repository.
+
+Restore one backed-up file with `bash scripts/restore.sh --backup <run-directory> --file zshrc [--dry-run]`; `--list` shows manifests. Restore backs up the current state and replaces the target itself without writing through its symlink. Older backups without a manifest require manual recovery.
+
+Validation: `python3 -m unittest discover -s tests -v`, `python3 scripts/generate-catalog.py --check`, and the disposable-container checks described in [validation](docs/validation.md). Runtime installs and GUI behavior have separate validation status.
 
 ## Quick start
 
@@ -25,7 +37,7 @@ No selection files are persisted. `--list` keeps the detailed inventory. Noninte
 ## Behavior
 
 - Intel/Apple Silicon macOS: Homebrew formulae and casks. If Apple developer tools are missing, run `xcode-select --install` and start again.
-- EndeavourOS/Arch: pacman and yay for AUR. Ensure yay is available (`sudo pacman -Syu --needed yay`). Ubuntu and Windows are unsupported.
+- EndeavourOS/Arch: pacman and yay for AUR. Ensure yay is available (`sudo pacman -Syu --needed yay`). Zorin 18 has separate APT, vendor and Flatpak routes; other Linux distributions and Zorin 17 are unsupported.
 - New installations request the latest available stable release. No version pins, automatic updates or saved selections. Installed apps are preserved; update them through their normal managers.
 - NVM only: no Node version is installed. Later, `nvm install --lts` downloads the available Node LTS through NVM.
 - Bun/pnpm/Deno and coding agents use standalone installs, without adding Node through Brew/npm.
@@ -53,7 +65,7 @@ Default-shell changes are optional and separate. Modified files are backed up un
 
 ## Dev directories
 
-Only missing directories are created; no cloning, moving, Git initialization or project generation. The default is `~/Documents/Dev`, editable in the wizard.
+Only missing directories are created; no cloning, moving, Git initialization or project generation. On macOS the default is `~/Documents/Dev`; Linux uses the localized XDG Documents directory when available. It is editable in the wizard.
 
 ```text
 Dev/
@@ -115,7 +127,7 @@ Defaults apply only when a tool is missing. Every application and font is option
 | Postman | Tests and organizes API requests and collections. | No | cask:postman | aur:postman-bin |
 | Tabularis | Graphical database exploration and management tool. | No | cask:tabularis | aur:tabularis-bin |
 | MongoDB Compass | Graphical client for MongoDB databases. | No | cask:mongodb-compass | aur:mongodb-compass |
-| DBeaver | Multi-database SQL client; enabled on Mac only. | No | cask:dbeaver-community | — |
+| DBeaver | SQL client for multiple databases. | No | cask:dbeaver-community | pacman:dbeaver |
 | Docker | Docker Desktop on Mac; Engine and Compose on Linux. | No | cask:docker-desktop | pacman:docker docker-compose |
 | Google Chrome | Browser with web development tools. | No | cask:google-chrome | aur:google-chrome |
 | Helium | Chromium-based browser. | No | cask:helium-browser | aur:helium-browser-bin |

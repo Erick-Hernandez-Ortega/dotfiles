@@ -1,4 +1,7 @@
-# Reference only; official/web installers are separate.
+# Generated reference only; the wizard installs selected items individually.
+watchman-bin # Watches file changes for mobile development.
+ngrok # Exposes local services through tunnels.
+lazyworktree-bin # Manages Git worktrees from the terminal.
 warp-terminal-bin # Terminal with assistance and organization features.
 visual-studio-code-bin # Extensible editor; use your cloud settings sync.
 cursor-bin # Code editor with AI assistance.
@@ -12,3 +15,4 @@ helium-browser-bin # Chromium-based browser.
 slack-desktop # Team messaging and collaboration.
 spotify # Music and podcast player.
 android-studio # Android IDE; manage additional SDKs inside the app.
+tableplus # Graphical database client.

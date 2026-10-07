@@ -1,4 +1,4 @@
-# Dotfiles de Ramón · macOS + EndeavourOS
+# Dotfiles de Ramón · macOS + EndeavourOS + Zorin 18
 
 [English](README.md) · Español
 
@@ -18,21 +18,45 @@ bash scripts/doctor.sh            # Comprobaciones de solo lectura.
 
 El asistente presenta nueve pasos con categorías claras. **↑/↓** mueve el cursor, **Espacio** marca/desmarca, **Enter** continúa y **← / B** vuelve. **Q** cancela sin instalar. Las opciones instaladas aparecen como `[x] · ya instalado`, bloqueadas para evitar reinstalarlas. La descripción del elemento enfocado aparece debajo de la lista.
 
-Puedes volver a los pasos anteriores y conservar tus selecciones durante esa ejecución. En el último paso se revisa el resumen; Enter confirma la instalación (o la simulación). **D** permite cambiar la ruta Dev desde el resumen.
+Puedes volver a los pasos anteriores y conservar tus selecciones durante esa ejecución. En el último paso se revisa el resumen; Enter confirma la instalación (o la simulación). **D** permite cambiar la ruta Dev desde el resumen. En Linux también se muestra el método de instalación y si se añadirán fuentes del fabricante.
 
 No hay archivos de selección persistente. `--list` conserva el inventario detallado. Sin una terminal interactiva, `--dry-run` muestra texto y usa los valores predeterminados. En terminales básicas (`TERM=dumb`) se mantiene un menú de texto como alternativa.
 
 ## Comportamiento
 
 - macOS Intel/Apple Silicon: Brew para fórmulas/casks. Si faltan las herramientas de Apple, ejecuta `xcode-select --install` y vuelve a empezar.
-- EndeavourOS/Arch: pacman, y yay para AUR. Antes de empezar, verifica `sudo pacman -Syu --needed yay`. No se admite Ubuntu ni Windows.
-- Descarga la versión estable más reciente disponible al instalar. No hay versiones fijadas, actualizaciones automáticas ni selección persistente. Una app instalada se conserva; actualízala con su gestor habitual.
+- EndeavourOS/Arch: pacman, y yay para AUR. Antes de usar AUR, verifica que yay esté instalado. La primera instalación de paquetes hace una actualización completa; las siguientes reutilizan los índices. base-devel se añade solo para AUR. Zorin 18 tiene rutas propias de APT, fuentes oficiales y Flatpak. Otras distribuciones y Zorin 17 no se admiten.
+- Usa la versión disponible en el gestor seleccionado; los instaladores oficiales resuelven su versión estable. No hay versiones fijadas, actualizaciones automáticas ni selección persistente. Una app instalada se conserva; actualízala con su gestor habitual.
 - NVM se instala sin Node. Más adelante puedes ejecutar `nvm install --lts`: instala el Node LTS disponible y lo administra NVM.
 - Bun/pnpm/Deno y agentes CLI tienen instalación independiente; no se añade Node por Brew/npm.
 - OpenCode usa exclusivamente su instalador oficial web.
 - Git existente se reutiliza. Nombre y correo quedan fijos; los tokens nunca se copian al repo.
 - No se aplican respaldos de editores ni se instalan extensiones. Usa tu sincronización de nube.
-- La detección consulta comandos, archivos, aplicaciones, fuentes y paquetes. Es una comprobación de presencia, no de licencia, sesión o funcionamiento completo.
+- La detección consulta comandos, archivos, aplicaciones, fuentes y paquetes. `doctor` también consulta runtimes, enlaces rotos y acceso a Docker/Compose. Es una comprobación de presencia, no de licencia, sesión o funcionamiento completo.
+
+## Linux: Arch y Zorin 18
+
+Consulta la [matriz completa de compatibilidad](docs/linux-compatibility.md) para ver el método de cada app. `--list` muestra si una opción está instalada, es seleccionable o requiere instalación manual; la disponibilidad del servidor se comprueba al instalar.
+
+Zorin 18 requiere la base Ubuntu 24.04 (`noble`) y arquitectura x86_64. APT actualiza índices y solo instala lo seleccionado, sin una actualización general. VS Code, Cursor, Warp y Docker usan repositorios firmados del fabricante. Los paquetes `.deb` también pueden registrar sus propias fuentes de actualización. Spotify, Firefox y ZapZap utilizan Flatpak de usuario; el resumen identifica las fuentes antes de confirmar.
+
+Ghostty, algunos clientes de bases de datos, Android Studio y otras opciones muestran enlaces oficiales para instalación manual en Zorin. Se listan como pendientes; no se anuncian como instaladas. Snap no se usa para nuevas instalaciones; sus comandos existentes se reconocen cuando están en PATH.
+
+Las nuevas opciones de Linux son jq, fzf, zoxide, rsync, rbenv, Java 17, Watchman, ngrok, lazyworktree, TablePlus, Firefox, VLC y ZapZap. Todas son opcionales. DBeaver también está habilitado en Linux. ZapZap es un cliente comunitario, distinto de la app oficial de WhatsApp para Mac.
+
+NVM reconoce instalaciones personales, XDG y `/usr/share/nvm`; conserva el directorio de versiones existente. No instala Node. rbenv se inicializa una vez si está disponible; sus paquetes pueden traer un Ruby del sistema como dependencia, pero no se instalan versiones administradas automáticamente. En Zorin se reconocen `batcat` y `fdfind`.
+
+“Personalización” añade dos acciones independientes: iniciar/habilitar Docker sin cambiar grupos y aplicar un Fastfetch portable. Ghostty tiene una apariencia Linux opcional con JetBrains Mono Nerd Font, fondo oscuro y transparencia; el desenfoque lo controla el escritorio. No se modifica HyDE/Hyprland ni se restauran ajustes de IDE.
+
+## Recuperar un respaldo
+
+```bash
+bash scripts/restore.sh --list
+bash scripts/restore.sh --backup "$HOME/.local/state/ramon-dotfiles/backups/<ejecución>" --file zshrc --dry-run
+bash scripts/restore.sh --backup "$HOME/.local/state/ramon-dotfiles/backups/<ejecución>" --file zshrc
+```
+
+Selecciona el directorio y nombre que aparecen en `--list`. La restauración pide confirmación, respalda el estado actual y reemplaza el enlace mismo; no escribe sobre el archivo del repo al que apunta. Los respaldos antiguos sin `manifest.tsv` conservan su recuperación manual.
 
 ## Tu terminal
 
@@ -53,7 +77,7 @@ Se detecta la shell; cambiar la shell predeterminada a Zsh es una opción aparte
 
 ## Carpetas Dev
 
-Crea únicamente directorios faltantes; no clona, mueve, inicializa Git ni genera proyectos. La ruta predeterminada es `~/Documents/Dev`, editable durante el asistente.
+Crea únicamente directorios faltantes; no clona, mueve, inicializa Git ni genera proyectos. En macOS la ruta predeterminada es `~/Documents/Dev`. En Linux se consulta `xdg-user-dir DOCUMENTS`: en esta computadora resulta `~/Documentos/Dev`. Si no existe una ruta válida, se usa `~/Documents/Dev`. Siempre es editable durante el asistente.
 
 ```text
 Dev/
@@ -115,7 +139,7 @@ AUR se ejecuta de forma interactiva para revisar sus fuentes. Solo se consideran
 | Postman | Prueba y organiza peticiones y colecciones de APIs. | No | cask:postman | aur:postman-bin |
 | Tabularis | Interfaz gráfica para explorar y administrar bases de datos. | No | cask:tabularis | aur:tabularis-bin |
 | MongoDB Compass | Interfaz gráfica para consultar bases de datos MongoDB. | No | cask:mongodb-compass | aur:mongodb-compass |
-| DBeaver | Cliente SQL multibase; habilitado solamente en Mac. | No | cask:dbeaver-community | — |
+| DBeaver | Cliente SQL para varias bases de datos. | No | cask:dbeaver-community | pacman:dbeaver |
 | Docker | Docker Desktop en Mac; Engine y Compose en Linux. | No | cask:docker-desktop | pacman:docker docker-compose |
 | Google Chrome | Navegador y herramientas de desarrollo web. | No | cask:google-chrome | aur:google-chrome |
 | Helium | Navegador basado en Chromium. | No | cask:helium-browser | aur:helium-browser-bin |
@@ -142,7 +166,7 @@ AUR se ejecuta de forma interactiva para revisar sus fuentes. Solo se consideran
 - `git/`: public identity only.
 - `config/`: Ghostty and btop preferences.
 - `backups/editors/`: sanitized, reference-only snapshots.
-- `packages/`: descriptive manifests; the wizard does not install them wholesale.
+- `packages/`: generated Linux reference manifests; the wizard does not install them wholesale.
 - `scripts/`: detection, installation, configuration, cleanup and checks.
 - `docs/`: initial inventory, troubleshooting and sources.
 
@@ -150,4 +174,4 @@ See / Ver [Troubleshooting](docs/troubleshooting.md), [Inventory / Inventario](d
 
 To change catalog entries, edit the JSON files and run `python3 scripts/generate-catalog.py`. Python is only required for maintenance, never to start the installer.
 
-Para cambiar el catálogo, edita los JSON y ejecuta `python3 scripts/generate-catalog.py`. Python solo se requiere para mantenimiento, no para iniciar el instalador.
+Para cambiar el catálogo, edita los JSON y ejecuta `python3 scripts/generate-catalog.py`; genera también los manifiestos Linux y la matriz. `python3 scripts/generate-catalog.py --check` comprueba que coincidan sin escribir archivos. Python solo se requiere para mantenimiento, no para iniciar el instalador.

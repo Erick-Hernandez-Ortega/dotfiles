@@ -12,3 +12,6 @@ local.zsh
 *.vsix
 node_modules/
 .state/
+
+__pycache__/
+*.pyc

@@ -18,12 +18,12 @@ UI_STATUSES=()
 UI_TITLES_ES=('Esenciales' 'Runtimes' 'Agentes de IA' 'Editores' 'Desarrollo' 'Tu día a día' 'Fuentes' 'Personalización' 'Revisar y comenzar')
 UI_TITLES_EN=('Essentials' 'Runtimes' 'AI agents' 'Editors' 'Development' 'Everyday apps' 'Fonts' 'Personalization' 'Review and start')
 UI_GROUPS=(
-  'git omz autosuggestions syntax-highlighting fastfetch eza bat btop gh ripgrep fd uv lazydocker'
-  'nvm bun pnpm deno'
+  'git omz autosuggestions syntax-highlighting fastfetch eza bat btop gh ripgrep fd uv lazydocker jq fzf zoxide rsync'
+  'nvm bun pnpm deno rbenv'
   'opencode cursor-cli codex claude-code'
   'vscode cursor zed sublime'
-  'ghostty warp bruno postman tabularis compass dbeaver docker android xcode'
-  'chrome helium slack discord whatsapp notion linear spotify steam rectangle appcleaner clipy'
+  'ghostty warp bruno postman tabularis compass dbeaver docker android xcode java17 watchman ngrok lazyworktree tableplus'
+  'chrome helium slack discord whatsapp notion linear spotify steam rectangle appcleaner clipy firefox vlc zapzap'
   'jetbrains jetbrains-nerd hack-nerd'
 )
 ui_text() { if [[ "$LANGUAGE" == es ]]; then printf '%s' "$1"; else printf '%s' "$2"; fi; }
@@ -146,7 +146,8 @@ ui_load_page() {
       row "$id"
       [[ -n "$(route)" ]] || continue
       locked=0; status=''
-      if is_installed; then locked=1; status="$(ui_text 'ya instalado' 'already installed')"; fi
+      if is_installed; then locked=1; status="$(ui_text 'ya instalado' 'already installed')"
+      elif [[ "$(route)" == manual:* ]]; then status="$(ui_text 'instalación manual' 'manual installation')"; fi
       if [[ "$LANGUAGE" == es ]]; then description="$ES"; else description="$EN"; fi
       ui_add "$id" "$LABEL" "$description" "$DEFAULT" "$locked" "$status"
     done
@@ -155,7 +156,11 @@ ui_load_page() {
     ui_add @switch "$(ui_text 'Usar Zsh como shell predeterminada' 'Use Zsh as the default shell')" "$(ui_text 'Detecta la shell de inicio y permite cambiarla a Zsh.' 'Detect the login shell and change it to Zsh if needed.')" 0 0 ''
     ui_add @git "$(ui_text 'Tu identidad de Git' 'Your Git identity')" 'Erick Ramon Hernandez Ortega · erickramon47@live.com.mx' 1 0 ''
     ui_add @auth "$(ui_text 'Conectar GitHub por HTTPS' 'Connect GitHub over HTTPS')" "$(ui_text 'Cuenta Erick-Hernandez-Ortega. Usa GitHub CLI; nunca copia tokens al repo.' 'Account Erick-Hernandez-Ortega. Uses GitHub CLI; never copies tokens to the repo.')" 0 0 ''
-    ui_add @ghostty "$(ui_text 'Apariencia de Ghostty' 'Ghostty appearance')" "$(ui_text 'Tu fondo #23262e, transparencia y desenfoque. Respalda la configuración actual.' 'Your #23262e background, transparency and blur. Back up current configuration.')" 0 0 ''
+    ui_add @ghostty "$(ui_text 'Apariencia de Ghostty' 'Ghostty appearance')" "$(ui_text 'Fondo y transparencia; Linux usa JetBrains Mono Nerd Font. Desenfoque según escritorio.' 'Background and opacity; Linux uses JetBrains Mono Nerd Font. Blur depends on desktop.')" 0 0 ''
+    if [[ "$OS" == linux ]]; then
+      ui_add @docker "$(ui_text 'Iniciar y habilitar Docker' 'Start and enable Docker')" "$(ui_text 'Habilita el servicio al arrancar; no modifica grupos.' 'Enable the service at boot; does not change groups.')" 0 0 ''
+      ui_add @fastfetch "$(ui_text 'Fastfetch portable' 'Portable Fastfetch')" "$(ui_text 'Resumen visual sin dependencias de HyDE; respalda tu configuración.' 'Visual summary without HyDE dependencies; backs up your configuration.')" 0 0 ''
+    fi
     ui_add @btop "$(ui_text 'Preferencias de btop' 'btop preferences')" "$(ui_text 'Aplica el respaldo de tu monitor de recursos.' 'Apply your resource monitor preferences.')" 0 0 ''
     ui_add @dev "$(ui_text 'Estructura de carpetas Dev' 'Dev directory structure')" "$(ui_text 'Solo carpetas: Frontend, Backend, Mobile, Desktop, Libraries, Scripts, Playground y Others.' 'Directories only: Frontend, Backend, Mobile, Desktop, Libraries, Scripts, Playground and Others.')" 1 0 ''
     ui_add @clean "$(ui_text 'Máximo ahorro de espacio' 'Maximum space savings')" "$(ui_text 'Borra las descargas y cachés de esta instalación. Conserva datos y dependencias necesarias.' 'Remove downloads and caches from this run. Keep data and required dependencies.')" 1 0 ''
@@ -193,40 +198,44 @@ ui_apply_choices() {
   local i id value
   SELECTED=()
   CONFIG_SHELL=0; SWITCH_SHELL=0; CONFIG_GIT=0; AUTH_GIT=0
-  CONFIG_GHOSTTY=0; CONFIG_BTOP=0; CREATE_DEV=0; MAX_CLEAN=0
+  CONFIG_DOCKER=0; CONFIG_FASTFETCH=0; CONFIG_GHOSTTY=0; CONFIG_BTOP=0; CREATE_DEV=0; MAX_CLEAN=0
   for ((i=0;i<${#UI_STATE_IDS[@]};i++)); do
     id="${UI_STATE_IDS[$i]}"; value="${UI_STATE_FLAGS[$i]}"
     case "$id" in
       @shell) CONFIG_SHELL="$value";; @switch) SWITCH_SHELL="$value";;
       @git) CONFIG_GIT="$value";; @auth) AUTH_GIT="$value";;
+      @docker) CONFIG_DOCKER="$value";; @fastfetch) CONFIG_FASTFETCH="$value";;
       @ghostty) CONFIG_GHOSTTY="$value";; @btop) CONFIG_BTOP="$value";;
       @dev) CREATE_DEV="$value";; @clean) MAX_CLEAN="$value";;
       *) (( value )) && SELECTED+=("$id");;
     esac
   done
-  # Authentication depends on gh: reflect that dependency in the review, not later.
-  if (( AUTH_GIT )); then
-    row gh
-    if ! is_installed; then
-      local found=0
-      if (( ${#SELECTED[@]} )); then
-        for id in "${SELECTED[@]}"; do [[ "$id" == gh ]] && found=1; done
-      fi
-      (( found )) || SELECTED+=(gh)
-    fi
-  fi
+  selection_dependencies
 }
 ui_summary_rows() {
   local id
   UI_SUMMARY=()
   if (( ${#SELECTED[@]} )); then
-    for id in "${SELECTED[@]}"; do row "$id"; UI_SUMMARY+=("+ $LABEL"); done
+    for id in "${SELECTED[@]}"; do
+      row "$id"
+      if [[ "$OS" == linux ]]; then UI_SUMMARY+=("+ $LABEL · $(route)")
+      else UI_SUMMARY+=("+ $LABEL"); fi
+    done
+    if [[ "$OS" == linux ]]; then
+      if [[ "$PLATFORM_FAMILY" == arch ]]; then
+        UI_SUMMARY+=("$(ui_text 'Paquetes: actualización completa de Arch; AUR requiere yay y base-devel.' 'Packages: full Arch upgrade; AUR requires yay and base-devel.')")
+      else
+        UI_SUMMARY+=("$(ui_text 'APT: actualizar índices; repo:* añade fuentes del fabricante.' 'APT: refresh metadata; repo:* adds vendor sources.')")
+      fi
+    fi
   else UI_SUMMARY+=("$(ui_text 'No hay programas nuevos seleccionados.' 'No new programs selected.')"); fi
   (( CONFIG_SHELL )) && UI_SUMMARY+=("$(ui_text '✓ Aplicar tu Zsh (con respaldo)' '✓ Apply your Zsh (with backup)')")
   (( SWITCH_SHELL )) && UI_SUMMARY+=("$(ui_text '✓ Comprobar la shell predeterminada' '✓ Check the default shell')")
   (( CONFIG_GIT )) && UI_SUMMARY+=("$(ui_text '✓ Configurar tu identidad de Git' '✓ Configure your Git identity')")
   (( AUTH_GIT )) && UI_SUMMARY+=("$(ui_text '✓ Conectar GitHub por HTTPS' '✓ Connect GitHub over HTTPS')")
   (( CONFIG_GHOSTTY )) && UI_SUMMARY+=('✓ Ghostty')
+  (( CONFIG_DOCKER )) && UI_SUMMARY+=("$(ui_text '✓ Habilitar servicio Docker' '✓ Enable Docker service')")
+  (( CONFIG_FASTFETCH )) && UI_SUMMARY+=('✓ Fastfetch portable')
   (( CONFIG_BTOP )) && UI_SUMMARY+=('✓ btop')
   (( CREATE_DEV )) && UI_SUMMARY+=("$(ui_text '✓ Crear carpetas' '✓ Create directories'): $DEV_ROOT")
   if (( MAX_CLEAN )); then UI_SUMMARY+=("$(ui_text '✓ Eliminar cachés de esta ejecución' '✓ Remove caches from this run')")

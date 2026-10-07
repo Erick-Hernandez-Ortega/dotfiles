@@ -11,7 +11,9 @@
     "linux": "pacman:ghostty",
     "app": "Ghostty.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "manual:https://ghostty.org/docs/install/binary",
+    "flatpak_id": ""
   },
   {
     "id": "warp",
@@ -25,7 +27,9 @@
     "linux": "aur:warp-terminal-bin",
     "app": "Warp.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "repo:warp",
+    "flatpak_id": ""
   },
   {
     "id": "vscode",
@@ -39,7 +43,9 @@
     "linux": "aur:visual-studio-code-bin",
     "app": "Visual Studio Code.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "repo:vscode",
+    "flatpak_id": "com.visualstudio.code"
   },
   {
     "id": "cursor",
@@ -53,7 +59,9 @@
     "linux": "aur:cursor-bin",
     "app": "Cursor.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "repo:cursor",
+    "flatpak_id": ""
   },
   {
     "id": "zed",
@@ -67,7 +75,9 @@
     "linux": "pacman:zed",
     "app": "Zed.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:zed",
+    "flatpak_id": ""
   },
   {
     "id": "sublime",
@@ -81,7 +91,9 @@
     "linux": "aur:sublime-text-4",
     "app": "Sublime Text.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "manual:https://www.sublimetext.com/docs/linux_repositories.html",
+    "flatpak_id": ""
   },
   {
     "id": "chatgpt",
@@ -95,7 +107,9 @@
     "linux": "",
     "app": "ChatGPT.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "",
+    "flatpak_id": ""
   },
   {
     "id": "claude-desktop",
@@ -109,7 +123,9 @@
     "linux": "",
     "app": "Claude.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "",
+    "flatpak_id": ""
   },
   {
     "id": "bruno",
@@ -123,7 +139,9 @@
     "linux": "aur:bruno-bin",
     "app": "Bruno.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "manual:https://www.usebruno.com/downloads",
+    "flatpak_id": "com.usebruno.Bruno"
   },
   {
     "id": "postman",
@@ -137,7 +155,9 @@
     "linux": "aur:postman-bin",
     "app": "Postman.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "manual:https://www.postman.com/downloads/",
+    "flatpak_id": "com.getpostman.Postman"
   },
   {
     "id": "tabularis",
@@ -151,7 +171,9 @@
     "linux": "aur:tabularis-bin",
     "app": "tabularis.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "manual:https://github.com/debba/tabularis/releases",
+    "flatpak_id": ""
   },
   {
     "id": "compass",
@@ -165,21 +187,25 @@
     "linux": "aur:mongodb-compass",
     "app": "MongoDB Compass.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "manual:https://www.mongodb.com/try/download/compass",
+    "flatpak_id": "com.mongodb.Compass"
   },
   {
     "id": "dbeaver",
     "label": "DBeaver",
-    "description_es": "Cliente SQL multibase; habilitado solamente en Mac.",
-    "description_en": "Multi-database SQL client; enabled on Mac only.",
+    "description_es": "Cliente SQL para varias bases de datos.",
+    "description_en": "SQL client for multiple databases.",
     "default": false,
     "kind": "app",
     "command": "",
     "mac": "cask:dbeaver-community",
-    "linux": "",
+    "linux": "pacman:dbeaver",
     "app": "DBeaver.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "deb:dbeaver",
+    "flatpak_id": "io.dbeaver.DBeaverCommunity"
   },
   {
     "id": "docker",
@@ -193,7 +219,9 @@
     "linux": "pacman:docker docker-compose",
     "app": "Docker.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "repo:docker",
+    "flatpak_id": ""
   },
   {
     "id": "chrome",
@@ -207,7 +235,9 @@
     "linux": "aur:google-chrome",
     "app": "Google Chrome.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "deb:chrome",
+    "flatpak_id": ""
   },
   {
     "id": "helium",
@@ -221,7 +251,9 @@
     "linux": "aur:helium-browser-bin",
     "app": "Helium.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "manual:https://helium.computer/",
+    "flatpak_id": ""
   },
   {
     "id": "slack",
@@ -235,7 +267,9 @@
     "linux": "aur:slack-desktop",
     "app": "Slack.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "manual:https://slack.com/downloads/linux",
+    "flatpak_id": "com.slack.Slack"
   },
   {
     "id": "discord",
@@ -249,7 +283,9 @@
     "linux": "pacman:discord",
     "app": "Discord.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "deb:discord",
+    "flatpak_id": "com.discordapp.Discord"
   },
   {
     "id": "whatsapp",
@@ -263,7 +299,9 @@
     "linux": "",
     "app": "WhatsApp.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "",
+    "flatpak_id": ""
   },
   {
     "id": "notion",
@@ -277,7 +315,9 @@
     "linux": "",
     "app": "Notion.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "",
+    "flatpak_id": ""
   },
   {
     "id": "linear",
@@ -291,7 +331,9 @@
     "linux": "",
     "app": "Linear.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "",
+    "flatpak_id": ""
   },
   {
     "id": "spotify",
@@ -305,7 +347,9 @@
     "linux": "aur:spotify",
     "app": "Spotify.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "flatpak:com.spotify.Client",
+    "flatpak_id": "com.spotify.Client"
   },
   {
     "id": "steam",
@@ -319,7 +363,9 @@
     "linux": "pacman:steam",
     "app": "Steam.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "apt:steam-installer",
+    "flatpak_id": "com.valvesoftware.Steam"
   },
   {
     "id": "android",
@@ -333,7 +379,9 @@
     "linux": "aur:android-studio",
     "app": "Android Studio.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "manual:https://developer.android.com/studio",
+    "flatpak_id": ""
   },
   {
     "id": "xcode",
@@ -347,7 +395,9 @@
     "linux": "",
     "app": "Xcode.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "",
+    "flatpak_id": ""
   },
   {
     "id": "rectangle",
@@ -361,7 +411,9 @@
     "linux": "",
     "app": "Rectangle.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "",
+    "flatpak_id": ""
   },
   {
     "id": "appcleaner",
@@ -375,7 +427,9 @@
     "linux": "",
     "app": "AppCleaner.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "",
+    "flatpak_id": ""
   },
   {
     "id": "clipy",
@@ -389,6 +443,72 @@
     "linux": "",
     "app": "Clipy.app",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "",
+    "flatpak_id": ""
+  },
+  {
+    "id": "tableplus",
+    "label": "TablePlus",
+    "description_es": "Cliente gráfico de bases de datos.",
+    "description_en": "Graphical database client.",
+    "default": false,
+    "kind": "app",
+    "command": "tableplus",
+    "mac": "",
+    "linux": "aur:tableplus",
+    "ubuntu": "manual:https://tableplus.com/blog/2019/10/tableplus-linux-installation.html",
+    "app": "",
+    "font_family": "",
+    "url": "https://tableplus.com/",
+    "flatpak_id": ""
+  },
+  {
+    "id": "firefox",
+    "label": "Firefox",
+    "description_es": "Navegador para uso diario y pruebas web.",
+    "description_en": "Browser for everyday use and web testing.",
+    "default": false,
+    "kind": "app",
+    "command": "firefox",
+    "mac": "",
+    "linux": "pacman:firefox",
+    "ubuntu": "flatpak:org.mozilla.firefox",
+    "app": "",
+    "font_family": "",
+    "url": "https://www.mozilla.org/firefox/",
+    "flatpak_id": "org.mozilla.firefox"
+  },
+  {
+    "id": "vlc",
+    "label": "VLC",
+    "description_es": "Reproductor multimedia.",
+    "description_en": "Media player.",
+    "default": false,
+    "kind": "app",
+    "command": "vlc",
+    "mac": "",
+    "linux": "pacman:vlc",
+    "ubuntu": "apt:vlc",
+    "app": "",
+    "font_family": "",
+    "url": "https://www.videolan.org/vlc/",
+    "flatpak_id": "org.videolan.VLC"
+  },
+  {
+    "id": "zapzap",
+    "label": "ZapZap",
+    "description_es": "Cliente comunitario de WhatsApp para Linux.",
+    "description_en": "Community WhatsApp client for Linux.",
+    "default": false,
+    "kind": "app",
+    "command": "zapzap",
+    "mac": "",
+    "linux": "flatpak:com.rtosta.zapzap",
+    "ubuntu": "flatpak:com.rtosta.zapzap",
+    "app": "",
+    "font_family": "",
+    "url": "https://github.com/rtosta/zapzap",
+    "flatpak_id": "com.rtosta.zapzap"
   }
 ]

@@ -6,3 +6,5 @@ if (( $+commands[eza] )); then
 fi
 # bat: syntax-highlighted file viewer. Use `command cat` for the original command.
 (( $+commands[bat] )) && alias cat="bat"
+
+if [[ "$OSTYPE" == linux* ]] && (( ! $+commands[bat] && $+commands[batcat] )); then alias cat=batcat; fi

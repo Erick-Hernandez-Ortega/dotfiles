@@ -11,7 +11,9 @@
     "linux": "native:omz",
     "app": "",
     "font_family": "",
-    "url": "https://ohmyz.sh/"
+    "url": "https://ohmyz.sh/",
+    "ubuntu": "native:omz",
+    "flatpak_id": ""
   },
   {
     "id": "autosuggestions",
@@ -25,7 +27,9 @@
     "linux": "pacman:zsh-autosuggestions",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "apt:zsh-autosuggestions",
+    "flatpak_id": ""
   },
   {
     "id": "syntax-highlighting",
@@ -39,7 +43,9 @@
     "linux": "pacman:zsh-syntax-highlighting",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "apt:zsh-syntax-highlighting",
+    "flatpak_id": ""
   },
   {
     "id": "fastfetch",
@@ -53,7 +59,9 @@
     "linux": "pacman:fastfetch",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "deb:fastfetch",
+    "flatpak_id": ""
   },
   {
     "id": "eza",
@@ -67,7 +75,9 @@
     "linux": "pacman:eza",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "apt:eza",
+    "flatpak_id": ""
   },
   {
     "id": "bat",
@@ -81,7 +91,9 @@
     "linux": "pacman:bat",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "apt:bat",
+    "flatpak_id": ""
   },
   {
     "id": "btop",
@@ -95,7 +107,9 @@
     "linux": "pacman:btop",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "apt:btop",
+    "flatpak_id": ""
   },
   {
     "id": "lazydocker",
@@ -109,7 +123,9 @@
     "linux": "pacman:lazydocker",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "manual:https://github.com/jesseduffield/lazydocker#installation",
+    "flatpak_id": ""
   },
   {
     "id": "gh",
@@ -123,7 +139,9 @@
     "linux": "pacman:github-cli",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "apt:gh",
+    "flatpak_id": ""
   },
   {
     "id": "ripgrep",
@@ -137,7 +155,9 @@
     "linux": "pacman:ripgrep",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "apt:ripgrep",
+    "flatpak_id": ""
   },
   {
     "id": "fd",
@@ -151,7 +171,9 @@
     "linux": "pacman:fd",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "apt:fd-find",
+    "flatpak_id": ""
   },
   {
     "id": "uv",
@@ -165,7 +187,9 @@
     "linux": "pacman:uv",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:uv",
+    "flatpak_id": ""
   },
   {
     "id": "nvm",
@@ -179,7 +203,9 @@
     "linux": "native:nvm",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:nvm",
+    "flatpak_id": ""
   },
   {
     "id": "bun",
@@ -193,7 +219,9 @@
     "linux": "native:bun",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:bun",
+    "flatpak_id": ""
   },
   {
     "id": "pnpm",
@@ -207,7 +235,9 @@
     "linux": "native:pnpm",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:pnpm",
+    "flatpak_id": ""
   },
   {
     "id": "deno",
@@ -221,7 +251,9 @@
     "linux": "native:deno",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:deno",
+    "flatpak_id": ""
   },
   {
     "id": "opencode",
@@ -235,7 +267,9 @@
     "linux": "native:opencode",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:opencode",
+    "flatpak_id": ""
   },
   {
     "id": "cursor-cli",
@@ -249,7 +283,9 @@
     "linux": "native:cursor-cli",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:cursor-cli",
+    "flatpak_id": ""
   },
   {
     "id": "codex",
@@ -263,7 +299,9 @@
     "linux": "native:codex",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:codex",
+    "flatpak_id": ""
   },
   {
     "id": "claude-code",
@@ -277,6 +315,152 @@
     "linux": "native:claude-code",
     "app": "",
     "font_family": "",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:claude-code",
+    "flatpak_id": ""
+  },
+  {
+    "id": "jq",
+    "label": "jq",
+    "description_es": "Procesa y consulta JSON.",
+    "description_en": "Processes and queries JSON.",
+    "default": false,
+    "kind": "tool",
+    "command": "jq",
+    "mac": "",
+    "linux": "pacman:jq",
+    "ubuntu": "apt:jq",
+    "app": "",
+    "font_family": "",
+    "url": "https://jqlang.org/",
+    "flatpak_id": ""
+  },
+  {
+    "id": "fzf",
+    "label": "fzf",
+    "description_es": "Busca archivos e historial de forma interactiva.",
+    "description_en": "Searches files and history interactively.",
+    "default": false,
+    "kind": "tool",
+    "command": "fzf",
+    "mac": "",
+    "linux": "pacman:fzf",
+    "ubuntu": "apt:fzf",
+    "app": "",
+    "font_family": "",
+    "url": "https://github.com/junegunn/fzf",
+    "flatpak_id": ""
+  },
+  {
+    "id": "zoxide",
+    "label": "zoxide",
+    "description_es": "Salta rápidamente a directorios frecuentes con z.",
+    "description_en": "Jumps to frequent directories with z.",
+    "default": false,
+    "kind": "tool",
+    "command": "zoxide",
+    "mac": "",
+    "linux": "pacman:zoxide",
+    "ubuntu": "apt:zoxide",
+    "app": "",
+    "font_family": "",
+    "url": "https://github.com/ajeetdsouza/zoxide",
+    "flatpak_id": ""
+  },
+  {
+    "id": "rsync",
+    "label": "rsync",
+    "description_es": "Copia y sincroniza directorios.",
+    "description_en": "Copies and synchronizes directories.",
+    "default": false,
+    "kind": "tool",
+    "command": "rsync",
+    "mac": "",
+    "linux": "pacman:rsync",
+    "ubuntu": "apt:rsync",
+    "app": "",
+    "font_family": "",
+    "url": "https://rsync.samba.org/",
+    "flatpak_id": ""
+  },
+  {
+    "id": "rbenv",
+    "label": "rbenv",
+    "description_es": "Administra versiones de Ruby; no instala Ruby automáticamente.",
+    "description_en": "Manages Ruby versions; does not automatically install Ruby.",
+    "default": false,
+    "kind": "tool",
+    "command": "rbenv",
+    "mac": "",
+    "linux": "pacman:rbenv ruby-build",
+    "ubuntu": "apt:rbenv ruby-build",
+    "app": "",
+    "font_family": "",
+    "url": "https://github.com/rbenv/rbenv",
+    "flatpak_id": ""
+  },
+  {
+    "id": "java17",
+    "label": "Java 17 JDK",
+    "description_es": "Herramientas Java para desarrollo Android.",
+    "description_en": "Java tools for Android development.",
+    "default": false,
+    "kind": "tool",
+    "command": "javac",
+    "mac": "",
+    "linux": "pacman:jdk17-openjdk",
+    "ubuntu": "apt:openjdk-17-jdk",
+    "app": "",
+    "font_family": "",
+    "url": "https://openjdk.org/projects/jdk/17/",
+    "flatpak_id": ""
+  },
+  {
+    "id": "watchman",
+    "label": "Watchman",
+    "description_es": "Observa cambios de archivos para desarrollo móvil.",
+    "description_en": "Watches file changes for mobile development.",
+    "default": false,
+    "kind": "tool",
+    "command": "watchman",
+    "mac": "",
+    "linux": "aur:watchman-bin",
+    "ubuntu": "manual:https://facebook.github.io/watchman/docs/install",
+    "app": "",
+    "font_family": "",
+    "url": "https://facebook.github.io/watchman/docs/install",
+    "flatpak_id": ""
+  },
+  {
+    "id": "ngrok",
+    "label": "ngrok",
+    "description_es": "Expone servicios locales mediante túneles.",
+    "description_en": "Exposes local services through tunnels.",
+    "default": false,
+    "kind": "tool",
+    "command": "ngrok",
+    "mac": "",
+    "linux": "aur:ngrok",
+    "ubuntu": "manual:https://ngrok.com/download/linux",
+    "app": "",
+    "font_family": "",
+    "url": "https://ngrok.com/download/linux",
+    "flatpak_id": ""
+  },
+  {
+    "id": "lazyworktree",
+    "label": "lazyworktree",
+    "description_es": "Administra worktrees de Git desde la terminal.",
+    "description_en": "Manages Git worktrees from the terminal.",
+    "default": false,
+    "kind": "tool",
+    "command": "lazyworktree",
+    "mac": "",
+    "linux": "aur:lazyworktree-bin",
+    "ubuntu": "manual:https://github.com/chmouel/lazyworktree",
+    "app": "",
+    "font_family": "",
+    "url": "https://github.com/chmouel/lazyworktree",
+    "flatpak_id": ""
   }
 ]

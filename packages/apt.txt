@@ -1,0 +1,18 @@
+# Generated reference only; the wizard installs selected items individually.
+zsh-autosuggestions # Suggests commands from your shell history.
+zsh-syntax-highlighting # Highlights shell commands and typing errors.
+eza # Lists files with icons, Git status and tree views.
+bat # Displays files with syntax highlighting and paging.
+btop # Interactive CPU, memory and process monitor.
+gh # Signs in to GitHub and manages repositories and pull requests.
+ripgrep # Searches text quickly inside files and projects.
+fd-find # Finds files and directories with simple syntax.
+jq # Processes and queries JSON.
+fzf # Searches files and history interactively.
+zoxide # Jumps to frequent directories with z.
+rsync # Copies and synchronizes directories.
+rbenv ruby-build # Manages Ruby versions; does not automatically install Ruby.
+openjdk-17-jdk # Java tools for Android development.
+steam-installer # Game library and installer; Linux requires multilib.
+vlc # Media player.
+fonts-jetbrains-mono # Monospaced programming font.

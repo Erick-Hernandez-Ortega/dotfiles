@@ -23,3 +23,21 @@ Commands below explain installation methods; the wizard uses temporary downloade
 Package routes checked on 2026-10-05; live availability may change. The installer reports errors instead of downloading alternative unofficial clients.
 
 All macOS cask identifiers and Linux package routes in the current catalog were checked against Homebrew/Arch/AUR APIs. This verifies names and availability at inspection time, not installation success.
+
+## Linux routes added · 2026-10-06
+
+- Zorin's package model/base: https://help.zorin.com/docs/apps-games/install-apps/
+- APT package availability: https://packages.ubuntu.com/noble/
+- VS Code: https://code.visualstudio.com/docs/setup/linux
+- Cursor signed APT source: https://cursor.com/docs/get-started/quickstart
+- Warp signed APT source: https://docs.warp.dev/getting-started/quickstart/installation-and-setup
+- Docker Ubuntu source: https://docs.docker.com/engine/install/ubuntu/ (uses Ubuntu base codename, not the derivative codename)
+- Fastfetch release DEB: https://github.com/fastfetch-cli/fastfetch/releases/latest
+- Zed Linux installer: https://zed.dev/docs/linux
+- uv: https://docs.astral.sh/uv/getting-started/installation/
+- Nerd Fonts release archives: https://github.com/ryanoasis/nerd-fonts/releases/latest
+- Ghostty platform-specific blur: https://ghostty.org/docs/config/reference#background-blur
+- Lazyworktree: https://github.com/chmouel/lazyworktree
+- ZapZap community client: https://github.com/rtosta/zapzap
+
+Manual routes retain their exact upstream links in the generated Linux compatibility matrix. These links are installation guidance, not automatic downloads of wrappers or unofficial desktop clients.

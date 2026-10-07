@@ -11,7 +11,9 @@
     "linux": "pacman:ttf-jetbrains-mono",
     "app": "",
     "font_family": "JetBrains Mono",
-    "url": ""
+    "url": "",
+    "ubuntu": "apt:fonts-jetbrains-mono",
+    "flatpak_id": ""
   },
   {
     "id": "jetbrains-nerd",
@@ -25,7 +27,9 @@
     "linux": "pacman:ttf-jetbrains-mono-nerd",
     "app": "",
     "font_family": "JetBrainsMono Nerd Font",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:jetbrains-nerd",
+    "flatpak_id": ""
   },
   {
     "id": "hack-nerd",
@@ -39,6 +43,8 @@
     "linux": "pacman:ttf-hack-nerd",
     "app": "",
     "font_family": "Hack Nerd Font",
-    "url": ""
+    "url": "",
+    "ubuntu": "native:hack-nerd",
+    "flatpak_id": ""
   }
 ]

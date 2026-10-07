@@ -22,3 +22,9 @@ Inspección del 2026-10-05 en Mac Apple Silicon. EndeavourOS es el objetivo Linu
 Office; Hyprland installation/configuration; lazygit; git-quick-stats; npm global tsx/Corepack/@humanlayer/cli; auth files; private keys; histories; .env; projects; browser profiles; editor extension binaries.
 
 No packages, active dotfiles, development folders or user caches were changed while preparing this repository.
+
+## Linux inspection · 2026-10-06
+
+Inspected this EndeavourOS x86_64 computer: Hyprland/HyDE with Wayland; development under `~/Documentos/Dev`; NVM from pacman plus XDG versions; Node, Bun, pnpm, Deno, Ruby/rbenv and Java 17; Docker and Compose; Ghostty, Warp, VS Code, Cursor, Zed, Postman, Tabularis, MongoDB Compass, TablePlus, lazyworktree, ngrok, Watchman, Firefox, VLC, Spotify and Steam.
+
+Existing rbenv initialization was repeated in the active `.zshrc`. This update does not edit that active file; applying the repo shell supplies a single guarded initialization. Linux desktop configs, IDE configs, credentials and application data are not imported.
